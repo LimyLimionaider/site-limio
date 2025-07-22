@@ -1,25 +1,54 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Limio Blockchain Miner</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <link rel="icon" href="LimioOne.png" />
+  <meta name="description" content="Minerador blockchain modular, open-source e comunitário." />
 </head>
 <body class="bg-gray-900 text-white font-sans">
+
+  <!-- Navbar -->
+  <header class="bg-gray-900 fixed top-0 w-full z-50 shadow-md">
+    <nav class="max-w-6xl mx-auto flex justify-between items-center p-4 text-sm">
+      <span class="font-bold text-white text-lg">Limio</span>
+      <ul class="flex gap-6 text-gray-300">
+        <li><a href="#projeto" class="hover:text-white">Sobre</a></li>
+        <li><a href="#funciona" class="hover:text-white">Como Funciona</a></li>
+        <li><a href="#instalacao" class="hover:text-white">Instalação</a></li>
+        <li><a href="#comunidade" class="hover:text-white">Comunidade</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <!-- Hero Section -->
-  <section class="text-center py-20 px-6">
+  <section class="text-center py-24 px-6 mt-16">
+    <img src="LimioOne.png" alt="Moeda Limio" class="mx-auto mb-6 w-32 h-auto rounded-xl shadow-lg" />
     <h1 class="text-4xl md:text-6xl font-bold mb-4">Limio Blockchain Miner</h1>
     <p class="text-xl text-gray-300 mb-6">Minerador blockchain modular, open-source e comunitário</p>
-    <a href="#instalacao" class="bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600">Comece Agora</a>
-  </section>  <!-- Sobre o Projeto -->  <section class="bg-gray-800 py-16 px-6" id="projeto">
-    <div class="max-w-4xl mx-auto">
+    <a href="#instalacao" class="inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+      </svg>
+      Comece Agora
+    </a>
+  </section>
+
+  <!-- Sobre o Projeto -->
+  <section class="bg-gray-800 py-16 px-6" id="projeto">
+    <div class="max-w-4xl mx-auto prose prose-invert">
       <h2 class="text-3xl font-bold mb-4">O que é o Limio?</h2>
-      <p class="text-gray-300 leading-relaxed">
+      <p>
         O Limio é um minerador blockchain construído em C++ moderno, voltado para testes comunitários, segurança e modularidade. Com suporte a testnet e mainnet, oferece mineração descentralizada e configuração simples.
       </p>
     </div>
-  </section>  <!-- Como Funciona -->  <section class="py-16 px-6" id="funciona">
-    <div class="max-w-4xl mx-auto">
+  </section>
+
+  <!-- Como Funciona -->
+  <section class="py-16 px-6" id="funciona">
+    <div class="max-w-4xl mx-auto prose prose-invert">
       <h2 class="text-3xl font-bold mb-4">Como Funciona</h2>
       <ul class="list-disc list-inside text-gray-300 space-y-2">
         <li>Transações são agrupadas em blocos.</li>
@@ -28,22 +57,43 @@
         <li>CLI intuitiva permite status, mineração e consulta de saldo.</li>
       </ul>
     </div>
-  </section>  <!-- Instalação -->  <section class="bg-gray-800 py-16 px-6" id="instalacao">
+  </section>
+
+  <!-- Instalação -->
+  <section class="bg-gray-800 py-16 px-6" id="instalacao">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-3xl font-bold mb-4">Instalação</h2>
-      <pre class="bg-black text-green-400 p-4 rounded overflow-x-auto text-sm">
-Requisitos: CMake 3.10+, g++/clang++ (C++17), libsodium, boost, nlohmann_json$ git clone https://github.com/seuusuario/limio.git $ cd limio $ ./build.sh $ ./tests_runner </pre> </div>
+      <div class="bg-gray-900 border border-green-500 rounded p-4">
+        <h3 class="text-green-400 font-semibold mb-2">Requisitos</h3>
+        <pre class="text-green-300 text-sm overflow-x-auto">
+CMake 3.10+, g++/clang++ (C++17), libsodium, boost, nlohmann_json
 
-  </section>  <!-- Participe -->  <section class="py-16 px-6" id="comunidade">
+$ git clone https://github.com/seuusuario/limio.git
+$ cd limio
+$ ./build.sh
+$ ./tests_runner
+        </pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comunidade -->
+  <section class="py-16 px-6" id="comunidade">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-3xl font-bold mb-4">Participe da Comunidade</h2>
       <p class="text-gray-300 mb-4">
         Envie feedbacks, contribua com código ou ajude a testar.
       </p>
-      <a href="https://github.com/seuusuario/limio" class="text-green-400 underline">Acesse o GitHub</a>
+      <a href="https://github.com/seuusuario/limio" class="text-green-400 underline hover:text-white transition">Acesse o GitHub</a>
     </div>
-  </section>  <!-- Rodapé -->  <footer class="bg-gray-900 py-6 text-center text-sm text-gray-500">
-    Projeto sob licença MIT · Versão Comunitária 2025
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-gray-900 py-6 text-center text-sm text-gray-500">
+    <img src="LimioOne.png" alt="Símbolo Limio" class="mx-auto mb-2 w-10 h-auto" />
+    Projeto sob licença MIT · Versão Comunitária 2025 ·
+    <a href="mailto:contato@limio.org" class="underline hover:text-white">Contato</a> ·
+    <a href="https://github.com/seuusuario/limio" class="underline hover:text-white">GitHub</a>
   </footer>
 </body>
-    </html>
+</html>
