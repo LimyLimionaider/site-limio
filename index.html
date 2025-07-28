@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Limio - Blockchain Modular</title>
   <meta name="description" content="Limio é uma blockchain modular, open source, com terminal interativo e comunidade ativa.">
-  <meta name="keywords" content="blockchain, modular, open source, Limio, criptomoeda">
-  <meta name="author" content="Equipe Limio">
   <meta property="og:title" content="Limio - Blockchain Modular" />
   <meta property="og:description" content="Conheça o Limio, blockchain modular, terminal interativo, comunidade ativa e open source." />
   <meta property="og:image" content="https://limio.org/og-image.png" />
@@ -16,429 +14,299 @@
   <meta name="twitter:description" content="Conheça o Limio, blockchain modular, terminal interativo, comunidade ativa e open source." />
   <meta name="twitter:image" content="https://limio.org/og-image.png" />
   <link rel="icon" href="favicon.ico">
-  <!-- Google Analytics, troque G-XXXXXXX pelo seu ID -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX');
-  </script>
   <style>
     :root {
+      --bg: #f6f7fb;
       --bg-dark: #18181b;
-      --text-dark: #f1f1f1;
-      --bg-light: #fafaf9;
-      --text-light: #232323;
-      --ouro: #e8c76d;
-      --ouroClaro: #f7e29a;
-      --fundo: #232323;
-      --textoClaro: #f1f1f1;
+      --text: #232323;
+      --text-dark: #ededed;
+      --primary: #2563eb;
+      --primary-dark: #60a5fa;
+      --card: #fff;
+      --card-dark: #23232b;
+      --border: #d1d5db;
+      --radius: 16px;
+      --gap: 2.5rem;
     }
-    body, section, .bg-fundo {
-      background: var(--bg-light);
-      color: var(--text-light);
+    html, body {
+      background: var(--bg);
+      color: var(--text);
       font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-      transition: background 0.2s, color 0.2s;
+      margin: 0;
+      min-height: 100vh;
+      scroll-behavior: smooth;
     }
-    .dark body, .dark section, .dark .bg-fundo { background: var(--bg-dark); color: var(--text-dark); }
-    .dark .text-textoClaro { color: #d4d4d8; }
-    .dark .bg-black { background: #232323; }
-    .text-ouro { color: var(--ouro); }
-    .bg-ouro { background: var(--ouro); }
-    .text-ouroClaro { color: var(--ouroClaro); }
-    .bg-ouroClaro { background: var(--ouroClaro); }
-    .bg-fundo { background: var(--fundo); }
-    .text-textoClaro { color: var(--textoClaro); }
-    .rounded-lg { border-radius: 0.75rem; }
-    .shadow, .shadow-lg { box-shadow: 0 2px 8px 0 #0002; }
-    .font-mono { font-family: 'Fira Mono', 'Menlo', 'Consolas', monospace; }
-    a { text-decoration: underline; }
-    a:hover { text-decoration: none; color: var(--ouro); }
-    .transition { transition: background .2s, color .2s, transform .2s; }
-    /* Containers */
-    .max-w-2xl { max-width: 640px; }
-    .mx-auto { margin-left:auto; margin-right:auto; }
-    .py-12 { padding-top:3rem; padding-bottom:3rem; }
-    .py-6 { padding-top:1.5rem; padding-bottom:1.5rem; }
-    .px-6 { padding-left:1.5rem; padding-right:1.5rem; }
-    .mb-2 { margin-bottom:0.5rem; }
-    .mb-4 { margin-bottom:1rem; }
-    .mb-6 { margin-bottom:1.5rem; }
-    .mt-2 { margin-top:0.5rem; }
-    .mt-3 { margin-top:0.75rem; }
-    .mt-4 { margin-top:1rem; }
-    .mt-6 { margin-top:1.5rem; }
-    .flex { display: flex; }
-    .flex-col { flex-direction: column; }
-    .flex-wrap { flex-wrap: wrap; }
-    .gap-2 { gap:0.5rem; }
-    .gap-4 { gap:1rem; }
-    .gap-6 { gap:1.5rem; }
-    .justify-center { justify-content: center; }
-    .items-center { align-items: center; }
-    .w-full { width:100%; }
-    .w-12 { width:3rem; }
-    .h-12 { height:3rem; }
-    .h-64 { height:16rem; }
-    .h-72 { height:18rem; }
-    .object-contain { object-fit:contain; }
-    .font-bold { font-weight:bold; }
-    .font-semibold { font-weight:600; }
-    .text-base { font-size:1rem; }
-    .text-xs { font-size:0.75rem; }
-    .text-sm { font-size:0.875rem; }
-    .text-lg { font-size:1.125rem; }
-    .list-decimal { list-style-type:decimal; }
-    .list-inside { list-style-position:inside; }
-    /* Button base */
-    button, .btn { cursor:pointer; }
-    .rounded { border-radius:0.5rem; }
-    .px-4 { padding-left:1rem; padding-right:1rem; }
-    .px-5 { padding-left:1.25rem; padding-right:1.25rem; }
-    .py-2 { padding-top:0.5rem; padding-bottom:0.5rem; }
-    .py-3 { padding-top:0.75rem; padding-bottom:0.75rem; }
-    /* Inputs */
-    input, textarea {
-      outline:none;
-      border:1px solid var(--ouro);
-      background: var(--fundo);
-      color: var(--textoClaro);
-      font-size:1rem;
-      border-radius:0.5rem;
-      padding:0.5rem;
-      transition:border-color .2s, background .2s;
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
     }
-    input:focus, textarea:focus { border-color: var(--ouroClaro); }
-    /* Responsive hack */
-    @media (max-width: 600px) {
-      .max-w-2xl { max-width:95vw;}
-      .h-64, .h-72 { height:10rem;}
-      .flex-wrap { flex-direction:column;}
-      .gap-4, .gap-6, .gap-2 { gap:.5rem;}
+    .container { max-width: 800px; margin: 0 auto; padding: 0 var(--gap);}
+    header {
+      padding: var(--gap) 0 var(--gap) 0;
+      text-align: center;
+      background: var(--card);
+      border-radius: var(--radius);
+      margin-top: var(--gap);
+      box-shadow: 0 2px 8px #0002;
+    }
+    body.dark header { background: var(--card-dark);}
+    h1 { font-size: 2.5rem; margin:0 0 0.5rem; color: var(--primary);}
+    h2 { font-size: 2rem; margin: 2rem 0 1rem 0; color: var(--primary);}
+    .badge-row {
+      display: flex; gap: 1rem; justify-content: center; align-items: center; margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    main section {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px #0001;
+      padding: var(--gap);
+      margin: var(--gap) 0;
+    }
+    body.dark main section { background: var(--card-dark);}
+    .terminal {background: #232323; color: #c7d4f7; border-radius: var(--radius); font-family: monospace; padding: 1rem; margin-bottom: 1rem; min-height: 120px; max-height: 240px; overflow-y: auto;}
+    .terminal-form {display: flex; gap: 0.5rem; margin-bottom: 0.5rem;}
+    .terminal-form input {flex: 1; padding: 0.5rem; border-radius: 8px; border: 1px solid var(--border); font-family: monospace; background: #f9fafb; color: #232323;}
+    body.dark .terminal-form input {background: #23232b; color: #ededed;}
+    .terminal-form button {padding: 0.5rem 1.2rem; border: none; border-radius: 8px; background: var(--primary); color: #fff; font-weight: bold; cursor: pointer;}
+    .divider {margin: var(--gap) 0; border-top: 1px solid var(--border);}
+    .card-row {display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;}
+    .card {
+      background: var(--bg);
+      border-radius: var(--radius);
+      box-shadow: 0 1px 4px #0001;
+      padding: 1.2rem;
+      flex: 1 1 320px;
+      min-width: 220px;
+      max-width: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    body.dark .card {background: #22222b;}
+    .community-links {
+      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin: 1rem 0;
+    }
+    .community-links a {
+      background: var(--primary);
+      color: #fff; font-weight: 500; text-decoration: none;
+      padding: 0.7rem 1.1rem; border-radius: 8px; box-shadow: 0 1px 4px #0001;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+    .community-links a:hover {background: var(--primary-dark);}
+    .feedback-form label {display: block; margin-bottom: 0.7rem;}
+    .feedback-form input, .feedback-form textarea {
+      width: 100%; padding: 0.5rem; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 1rem;
+      background: #f9fafb; color: #232323; font-size: 1rem;
+    }
+    body.dark .feedback-form input, body.dark .feedback-form textarea {background: #23232b; color: #ededed;}
+    .feedback-form button {padding: 0.7rem 1.6rem; border: none; border-radius: 8px; background: var(--primary); color: #fff; font-weight: bold;}
+    .blog article {margin-bottom: 1.5rem; background: var(--bg); border-radius: 12px; box-shadow: 0 1px 4px #0001; padding: 1rem;}
+    body.dark .blog article {background: #23232b;}
+    .github-row {display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;}
+    .github-row .card {align-items: flex-start; max-width: 400px;}
+    .contributors {display: flex; gap: 0.7rem; flex-wrap: wrap;}
+    .contributors a {text-decoration: none;}
+    .contributors img {width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--primary);}
+    footer {
+      text-align: center;
+      font-size: 0.97em;
+      color: #666;
+      margin: 2rem 0 0 0;
+      padding: 2rem 0 1rem 0;
+      background: none;
+    }
+    .theme-btn {position: fixed; top:1rem; right: 1rem; background: var(--primary); color: #fff; border-radius: 50%; width: 44px; height:44px; border:none; font-size:1.2rem; box-shadow:0 2px 8px #0002; cursor:pointer; z-index:10;}
+    @media (max-width: 900px) {
+      .container{padding:0 1rem;}
+      .card-row, .github-row{flex-direction:column; gap:1rem;}
+      .card{max-width:100%;}
+    }
+    @media (max-width:600px) {
+      main section, header{padding: 1rem;}
+      .theme-btn{top:0.5rem; right:0.5rem;}
     }
   </style>
 </head>
 <body>
-  <!-- Tema claro/escuro global -->
-  <section class="py-6 px-6 text-right">
-    <button id="theme-btn" class="bg-ouro text-fundo px-4 py-2 rounded-lg font-bold shadow hover:bg-ouroClaro transition" aria-label="Alternar tema">Alternar Tema</button>
-  </section>
+  <!-- Tema claro/escuro -->
+  <button id="theme-btn" class="theme-btn" aria-label="Alternar tema">🌙</button>
   <script>
     function setTheme(mode) {
-      document.documentElement.classList.toggle('dark', mode === 'dark');
+      document.body.classList.toggle('dark', mode === 'dark');
       localStorage.setItem('theme', mode);
-      document.getElementById('theme-btn').textContent = mode === 'dark' ? '🌙 Modo Claro' : '🌑 Modo Escuro';
+      document.getElementById('theme-btn').textContent = mode === 'dark' ? '🌙' : '🌑';
     }
     window.addEventListener('DOMContentLoaded', () => {
-      const saved = localStorage.getItem('theme') || 'dark';
-      setTheme(saved);
-      document.getElementById('theme-btn').addEventListener('click', () => {
-        setTheme(document.documentElement.classList.contains('dark') ? 'light' : 'dark');
-      });
+      setTheme(localStorage.getItem('theme') || 'light');
+      document.getElementById('theme-btn').onclick = () => {
+        setTheme(document.body.classList.contains('dark') ? 'light' : 'dark');
+      };
     });
   </script>
 
-  <!-- Badges -->
-  <section class="py-3 px-6 text-center" aria-label="Badges do projeto">
-    <a href="https://github.com/seuusuario/limio/blob/main/LICENSE" target="_blank">
-      <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="Licença MIT" class="inline-block mx-2" />
-    </a>
-    <a href="https://github.com/seuusuario/limio/security" target="_blank">
-      <img src="https://img.shields.io/badge/audit-passing-brightgreen.svg" alt="Auditoria de segurança" class="inline-block mx-2" />
-    </a>
-  </section>
+  <div class="container">
+    <header>
+      <h1>Limio</h1>
+      <p>Blockchain modular, open source, com terminal interativo e comunidade ativa.</p>
+      <div class="badge-row">
+        <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="Licença MIT" />
+        <img src="https://img.shields.io/badge/audit-passing-brightgreen.svg" alt="Auditoria de segurança" />
+      </div>
+    </header>
 
-  <!-- Terminal Interativo Limio -->
-  <section class="py-12 px-6" id="terminal-demo" aria-label="Terminal interativo">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="text-2xl font-bold mb-4 text-ouro">Terminal Limio Interativo Avançado</h2>
-      <div class="flex flex-col gap-2" role="region" aria-label="Terminal">
-        <div id="terminal" class="bg-black rounded-lg p-4 font-mono text-green-300 shadow-lg text-base h-72 overflow-y-auto" tabindex="0" aria-live="polite"></div>
-        <form id="terminal-form" autocomplete="off" class="mt-3 flex gap-2" onsubmit="return false;" aria-label="Formulário de comando">
-          <span id="prompt" class="text-ouroClaro font-semibold">limio@node:~$</span>
-          <input id="terminal-input" type="text" placeholder="Digite seu comando..." class="flex-1 p-2 rounded bg-fundo border border-ouro text-textoClaro outline-none" autofocus aria-label="Campo de comando" />
-          <button type="submit" class="bg-ouro text-fundo px-4 rounded hover:bg-ouroClaro transition" aria-label="Enviar comando">Enviar</button>
+    <main>
+      <!-- Terminal Interativo -->
+      <section id="terminal-demo" aria-label="Terminal interativo">
+        <h2>Terminal Limio</h2>
+        <div id="terminal" class="terminal" aria-live="polite"></div>
+        <form id="terminal-form" class="terminal-form" autocomplete="off">
+          <span>limio@node:~$</span>
+          <input id="terminal-input" type="text" placeholder="Digite comando..." aria-label="Comando do terminal" />
+          <button type="submit">Enviar</button>
         </form>
-        <div id="autocomplete" class="text-xs text-ouroClaro mt-1" aria-live="polite"></div>
-      </div>
-      <p class="text-textoClaro mt-4 text-sm">Experimente comandos: <code>mine</code>, <code>status</code>, <code>balance</code>, <code>burn</code>, <code>peers</code>, <code>send</code>, <code>help</code>, <code>clear</code></p>
-    </div>
-    <script>
-      const terminal = document.getElementById('terminal');
-      const form = document.getElementById('terminal-form');
-      const input = document.getElementById('terminal-input');
-      const autocomplete = document.getElementById('autocomplete');
-      const prompt = document.getElementById('prompt');
-      let history = [];
-      let historyIndex = -1;
-      const commands = {
-        mine: {msg:'⛏️  Mineração iniciada... bloco #12345 minerado!',type:'success'},
-        status: {msg:'🌐  Rede ativa. Blocos: 12345 | Peers: 8',type:'info'},
-        balance: {msg:'💰 Saldo: 120 LIMIO',type:'success'},
-        burn: {msg:'🔥 Transação burn criada. 5 LIMIO queimados.',type:'success'},
-        peers: {msg:'Peers conectados: nodeA, nodeB, nodeC, nodeD.',type:'info'},
-        send: {msg:'📤 Transação enviada para limio1xyz... Valor: 10 LIMIO',type:'success'},
-        version: {msg:'Versão Limio: v1.2.5 - MIT',type:'info'},
-        clear: {msg:'---',type:'clear'},
-        help: {msg:'Comandos disponíveis: mine, status, balance, burn, peers, send, version, clear, help<br>Digite <b>help &lt;comando&gt;</b> para detalhes.',type:'info'},
-        'help mine': {msg:'mine: inicia mineração do próximo bloco e exibe resultado.',type:'info'},
-        'help burn': {msg:'burn: gera transação para queimar LIMIO.',type:'info'},
-        'help send': {msg:'send: envia LIMIO para outro endereço.',type:'info'},
-        'help peers': {msg:'peers: lista peers conectados.',type:'info'},
-        'help balance': {msg:'balance: mostra saldo da sua carteira.',type:'info'},
-        'help status': {msg:'status: mostra o estado atual da rede.',type:'info'},
-        'help version': {msg:'version: exibe versão do sistema.',type:'info'},
-        'help clear': {msg:'clear: limpa o terminal.',type:'info'},
-      };
-      const allCmds = Object.keys(commands);
-      function colorMsg(msg, type) {
-        if (type === 'error') return `<span style="color:#f87171">${msg}</span>`;
-        if (type === 'success') return `<span style="color:#22c55e">${msg}</span>`;
-        if (type === 'info') return `<span style="color:#38bdf8">${msg}</span>`;
-        return msg;
-      }
-      function addLine(cmd, response, type) {
-        if (type === 'clear') {
-          terminal.innerHTML = '';
-          return;
-        }
-        terminal.innerHTML += `<div><span class="text-ouroClaro">&gt; ${cmd}</span><br/>${colorMsg(response, type)}</div>`;
-        terminal.scrollTop = terminal.scrollHeight;
-      }
-      form.addEventListener('submit', function() {
-        const cmd = input.value.trim();
-        if (!cmd) return;
-        history.push(cmd);
-        historyIndex = history.length;
-        let responseObj = commands[cmd.toLowerCase()];
-        let type = responseObj ? responseObj.type : 'error';
-        let response = responseObj ? responseObj.msg : 'Comando não reconhecido. Digite <b>help</b> para ver comandos.';
-        addLine(cmd, response, type);
-        input.value = '';
-        autocomplete.textContent = '';
-      });
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowUp') {
-          if (history.length && historyIndex > 0) {
-            historyIndex--;
-            input.value = history[historyIndex];
-          }
-        }
-        if (e.key === 'ArrowDown') {
-          if (history.length && historyIndex < history.length - 1) {
-            historyIndex++;
-            input.value = history[historyIndex];
-          } else {
+        <small>Comandos: <code>mine</code>, <code>status</code>, <code>help</code>, <code>clear</code></small>
+        <script>
+          const terminal = document.getElementById('terminal');
+          const form = document.getElementById('terminal-form');
+          const input = document.getElementById('terminal-input');
+          const cmds = {
+            mine: '⛏️ Mineração iniciada... bloco #12345 minerado!',
+            status: '🌐 Rede ativa. Blocos: 12345 | Peers: 8',
+            help: 'Comandos: mine, status, help, clear',
+            clear: '',
+          };
+          form.onsubmit = (e) => {
+            e.preventDefault();
+            let val = input.value.trim().toLowerCase();
+            if (!val) return;
+            if (val === 'clear') terminal.innerHTML = '';
+            else terminal.innerHTML += `<div>&gt; ${val}<br>${cmds[val] || 'Comando não reconhecido.'}</div>`;
             input.value = '';
-            historyIndex = history.length;
-          }
-        }
-      });
-      input.addEventListener('input', () => {
-        let val = input.value.trim();
-        if (!val) { autocomplete.textContent = ''; return; }
-        let suggestion = allCmds.find(c => c.startsWith(val.toLowerCase()));
-        autocomplete.textContent = suggestion && suggestion !== val.toLowerCase() ? `Sugestão: ${suggestion}` : '';
-      });
-      prompt.textContent = 'limio@node:~$';
-      addLine('help', commands['help'].msg, 'info');
-    </script>
-  </section>
+            terminal.scrollTop = terminal.scrollHeight;
+          };
+          terminal.innerHTML = '<div>&gt; help<br>Comandos: mine, status, help, clear</div>';
+        </script>
+      </section>
 
-  <!-- Demonstração em vídeo/GIF -->
-  <section class="py-12 px-6" id="demo-video" aria-label="Demonstração em vídeo">
-    <div class="max-w-2xl mx-auto text-center">
-      <h2 class="text-2xl font-bold mb-4 text-ouro">Veja o Limio em ação</h2>
-      <div class="rounded-lg overflow-hidden shadow-lg bg-black flex justify-center items-center mb-4">
-        <!-- Substitua o src pelo link do seu vídeo ou GIF! -->
-        <iframe
-          width="100%"
-          height="315"
-          src="https://www.youtube.com/embed/SEU_VIDEO_ID"
-          title="Limio Blockchain Demo"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          class="w-full h-64"
-          style="background:#000"
-        ></iframe>
-        <!-- Ou use um GIF local:
-        <img src="demo-limio.gif" alt="Demonstração Limio" class="w-full h-64 object-contain bg-black" loading="lazy" />
-        -->
-      </div>
-      <p class="text-ouroClaro mt-2 mb-2">Assista como instalar, minerar e consultar saldo em poucos minutos. <br>
-        <span class="text-textoClaro text-sm">Quer ver mais tutoriais? <a href="#comunidade" class="underline hover:text-ouro">Participe da comunidade Limio!</a></span>
-      </p>
-    </div>
-  </section>
-
-  <!-- Widget de contribuições GitHub -->
-  <section class="py-12 px-6" id="github-widget" aria-label="Widget GitHub">
-    <div class="max-w-2xl mx-auto text-center">
-      <h2 class="text-2xl font-bold mb-4 text-ouro">Contribuição Comunitária</h2>
-      <p class="text-ouroClaro mb-4">Veja quem está colaborando com o Limio e as últimas atividades no projeto.</p>
-      <div id="contributors" class="flex flex-wrap justify-center gap-4 mb-6"></div>
-      <div id="commits" class="bg-fundo rounded-lg p-4 shadow-lg text-left text-textoClaro">
-        <h3 class="text-ouroClaro font-semibold mb-2">Últimos commits</h3>
-        <ul id="commits-list" class="text-sm"></ul>
-      </div>
-      <a href="https://github.com/seuusuario/limio" class="text-ouroClaro underline hover:text-ouro mt-4 inline-block" target="_blank" rel="noopener">Ver projeto completo no GitHub</a>
-    </div>
-    <script>
-      // Troque pelo seu repositório!
-      const repo = "seuusuario/limio";
-      fetch(`https://api.github.com/repos/${repo}/contributors`)
-        .then(res => res.json())
-        .then(data => {
-          const ctn = document.getElementById('contributors');
-          ctn.innerHTML = data.slice(0, 10).map(u => `
-            <a href="${u.html_url}" target="_blank" rel="noopener" title="${u.login}" class="flex flex-col items-center w-20">
-              <img src="${u.avatar_url}" alt="${u.login}" class="rounded-full w-12 h-12 mb-1 border-2 border-ouro transition-transform hover:scale-110" />
-              <span class="text-xs text-ouroClaro">${u.login}</span>
-            </a>
-          `).join('');
-        });
-      fetch(`https://api.github.com/repos/${repo}/commits`)
-        .then(res => res.json())
-        .then(data => {
-          const ul = document.getElementById('commits-list');
-          ul.innerHTML = data.slice(0, 5).map(c => `
-            <li class="mb-2">
-              <a href="${c.html_url}" target="_blank" rel="noopener" class="text-ouro hover:text-ouroClaro">${c.commit.message.split('\n')[0]}</a>
-              <span class="text-xs text-textoClaro"> – ${c.commit.author.name}</span>
-            </li>
-          `).join('');
-        });
-    </script>
-  </section>
-
-  <!-- Comunidade Limio -->
-  <section class="py-12 px-6" id="community" aria-label="Links da comunidade">
-    <div class="max-w-2xl mx-auto text-center">
-      <h2 class="text-2xl font-bold mb-4 text-ouro">Junte-se à Comunidade Limio</h2>
-      <p class="text-ouroClaro mb-4 text-lg">Tire dúvidas, compartilhe ideias, contribua com código e acompanhe novidades!</p>
-      <div class="flex flex-wrap gap-6 justify-center mb-6">
-        <a href="https://discord.gg/seuinvite" target="_blank" rel="noopener" class="bg-[#5865F2] text-white px-5 py-3 rounded-lg flex items-center gap-2 shadow hover:bg-[#4851c6] transition" aria-label="Discord">
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.369A19.791 19.791 0 0016.885 3.6a.111.111 0 00-.117.056c-.561.98-1.188 2.226-1.627 3.222a18.669 18.669 0 00-6.876 0c-.438-.996-1.066-2.242-1.627-3.222a.104.104 0 00-.117-.056c-1.433.271-3.432.816-4.843 1.769a.096.096 0 00-.041.037C.533 7.623-.32 12.019.079 16.342a.112.112 0 00.042.084c2.048 1.504 4.013 2.411 5.969 3.03a.108.108 0 00.117-.042c.456-.625.863-1.285 1.211-1.98a.112.112 0 00-.063-.156c-.652-.247-1.273-.549-1.872-.892a.112.112 0 01-.011-.186c.126-.094.252-.192.371-.291a.109.109 0 01.113-.018c3.927 1.793 8.18 1.793 12.061 0a.112.112 0 01.115.016c.12.099.245.197.371.291a.112.112 0 01-.011.186 11.955 11.955 0 01-1.872.892.112.112 0 00-.063.156c.36.695.77 1.355 1.211 1.98a.108.108 0 00.117.042c1.956-.619 3.921-1.526 5.969-3.03a.112.112 0 00.042-.084c.5-5.177-.838-9.549-3.548-11.936a.093.093 0 00-.04-.037zM8.02 15.331c-.784 0-1.426-.724-1.426-1.617 0-.893.632-1.617 1.426-1.617.794 0 1.434.732 1.426 1.617.003.893-.632 1.617-1.426 1.617zm7.974 0c-.784 0-1.426-.724-1.426-1.617 0-.893.632-1.617 1.426-1.617.794 0 1.434.732 1.426 1.617.003.893-.632 1.617-1.426 1.617z"/></svg>
-          Discord
-        </a>
-        <a href="https://t.me/seuusuario" target="_blank" rel="noopener" class="bg-[#229ED9] text-white px-5 py-3 rounded-lg flex items-center gap-2 shadow hover:bg-[#178bb8] transition" aria-label="Telegram">
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10c0-5.52-4.48-10-10-10zm4.39 7.63l-1.52 7.22c-.12.53-.43.66-.87.41l-2.42-1.78-1.17 1.13c-.13.14-.24.25-.49.25l.17-2.46 4.49-4.05c.2-.17-.04-.27-.31-.1l-5.56 3.5-2.39-.75c-.52-.16-.54-.52.11-.77l9.32-3.59c.44-.16.83.11.69.77z"/></svg>
-          Telegram
-        </a>
-        <a href="mailto:contato@limio.org" class="bg-ouro text-fundo px-5 py-3 rounded-lg flex items-center gap-2 shadow hover:bg-ouroClaro transition" aria-label="E-mail">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          E-mail
-        </a>
-        <a href="https://github.com/seuusuario/limio/discussions" target="_blank" rel="noopener" class="bg-[#24292E] text-white px-5 py-3 rounded-lg flex items-center gap-2 shadow hover:bg-gray-700 transition" aria-label="Fórum GitHub">
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3C7.03 3 3 6.58 3 11c0 2.44 1.18 4.63 3.15 6.18.13.1.21.25.21.42v2.16c0 .41.42.68.8.54l2.49-1.01c.12-.05.25-.08.38-.08.65.06 1.33.09 1.97.09 4.97 0 9-3.58 9-8s-4.03-8-9-8z"/></svg>
-          Fórum (GitHub Discussions)
-        </a>
-      </div>
-      <p class="text-textoClaro mt-2 text-sm">Participe, contribua e ajude a construir o futuro da Limio!</p>
-    </div>
-  </section>
-
-  <!-- Guia Desenvolvedores -->
-  <section class="py-12 px-6" id="guia-dev" aria-label="Guia para desenvolvedores">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="text-2xl font-bold mb-4 text-ouro">Guia Rápido para Desenvolvedores</h2>
-      <p class="text-textoClaro mb-4">Quer contribuir com o Limio, criar módulos ou integrar sua aplicação? Siga os passos abaixo!</p>
-      <div class="bg-fundo rounded-lg p-6 shadow-lg">
-        <ol class="list-decimal list-inside text-ouroClaro space-y-3 mb-6">
-          <li>
-            <b>Clone o projeto:</b><br>
-            <code class="bg-black text-green-300 px-2 py-1 rounded">git clone https://github.com/seuusuario/limio.git</code>
-          </li>
-          <li>
-            <b>Instale dependências:</b><br>
-            <code class="bg-black text-green-300 px-2 py-1 rounded">cd limio &amp;&amp; npm install</code>
-          </li>
-          <li>
-            <b>Rode o Limio localmente:</b><br>
-            <code class="bg-black text-green-300 px-2 py-1 rounded">npm start</code>
-          </li>
-          <li>
-            <b>Crie um novo módulo:</b><br>
-            <code class="bg-black text-green-300 px-2 py-1 rounded">npm run create-module meu-modulo</code>
-            <br>
-            <span class="text-xs text-textoClaro">Consulte exemplos na <a href="https://github.com/seuusuario/limio/wiki" target="_blank" class="underline text-ouro">Wiki</a></span>
-          </li>
-          <li>
-            <b>Integre sua aplicação via API:</b><br>
-            <code class="bg-black text-green-300 px-2 py-1 rounded">GET /api/v1/status</code>
-            <br>
-            <span class="text-xs text-textoClaro">Veja a <a href="https://github.com/seuusuario/limio/blob/main/API.md" target="_blank" class="underline text-ouro">documentação da API</a></span>
-          </li>
-          <li>
-            <b>Contribua com código:</b><br>
-            <span class="text-xs text-textoClaro">Leia o <a href="https://github.com/seuusuario/limio/blob/main/CONTRIBUTING.md" target="_blank" class="underline text-ouro">Guia de Contribuição</a> e envie seu pull request!</span>
-          </li>
-        </ol>
-        <div class="text-center mt-4">
-          <a href="https://github.com/seuusuario/limio" target="_blank" class="bg-ouro text-fundo px-5 py-2 rounded-lg font-bold shadow hover:bg-ouroClaro transition">Acesse o repositório Limio</a>
+      <!-- Demonstração vídeo/GIF -->
+      <section id="demo-video" aria-label="Demonstração em vídeo">
+        <h2>Veja o Limio em ação</h2>
+        <div class="card">
+          <!-- Substitua o src pelo link do seu vídeo ou GIF! -->
+          <iframe
+            width="100%"
+            height="210"
+            src="https://www.youtube.com/embed/SEU_VIDEO_ID"
+            title="Limio Blockchain Demo"
+            frameborder="0"
+            allowfullscreen
+            style="background:#000"
+          ></iframe>
+          <small>Assista como instalar, minerar e consultar saldo em minutos.</small>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- Formulário de Feedback/Sugestão -->
-  <section class="py-12 px-6" id="feedback" aria-label="Formulário de feedback">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="text-2xl font-bold mb-4 text-ouro">Envie Feedback ou Sugestão</h2>
-      <p class="text-textoClaro mb-4">Sua opinião é muito importante! Relate bugs, ideias de melhoria ou dúvidas sobre o Limio.</p>
-      <form
-        action="https://formspree.io/f/SEU_FORM_ID" 
-        method="POST"
-        class="bg-fundo rounded-lg p-6 shadow-lg flex flex-col gap-4"
-        aria-label="Formulário de contato"
-      >
-        <label class="text-ouroClaro font-semibold" for="nome">
-          Nome<br>
-          <input id="nome" name="nome" type="text" class="w-full bg-black text-green-300 p-2 rounded border border-ouro" required aria-required="true">
-        </label>
-        <label class="text-ouroClaro font-semibold" for="email">
-          E-mail<br>
-          <input id="email" name="email" type="email" class="w-full bg-black text-green-300 p-2 rounded border border-ouro" required aria-required="true">
-        </label>
-        <label class="text-ouroClaro font-semibold" for="mensagem">
-          Mensagem<br>
-          <textarea id="mensagem" name="mensagem" rows="5" class="w-full bg-black text-green-300 p-2 rounded border border-ouro resize-y" required aria-required="true"></textarea>
-        </label>
-        <button type="submit" class="bg-ouro text-fundo font-bold px-5 py-2 rounded-lg shadow hover:bg-ouroClaro transition" aria-label="Enviar feedback">Enviar</button>
-        <p class="text-xs text-textoClaro mt-2">Seu feedback será enviado para nossa equipe via e-mail.</p>
-      </form>
-    </div>
-  </section>
+      <!-- Widget GitHub -->
+      <section id="github-widget" aria-label="Widget GitHub">
+        <h2>Contribuição Comunitária</h2>
+        <div class="github-row">
+          <div class="card" style="align-items:center;">
+            <strong>Contribuidores</strong>
+            <div id="contributors" class="contributors"></div>
+          </div>
+          <div class="card">
+            <strong>Últimos commits</strong>
+            <ul id="commits-list" style="list-style:none;padding:0;"></ul>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top:1rem;">
+          <a href="https://github.com/seuusuario/limio" target="_blank" class="community-links">Ver no GitHub</a>
+        </div>
+        <script>
+          const repo = "seuusuario/limio";
+          fetch(`https://api.github.com/repos/${repo}/contributors`)
+            .then(res => res.json())
+            .then(data => {
+              const ctn = document.getElementById('contributors');
+              ctn.innerHTML = data.slice(0, 10).map(u => `
+                <a href="${u.html_url}" target="_blank" title="${u.login}">
+                  <img src="${u.avatar_url}" alt="${u.login}" />
+                </a>
+              `).join('');
+            });
+          fetch(`https://api.github.com/repos/${repo}/commits`)
+            .then(res => res.json())
+            .then(data => {
+              const ul = document.getElementById('commits-list');
+              ul.innerHTML = data.slice(0, 5).map(c => `
+                <li style="margin-bottom:0.7rem;">
+                  <a href="${c.html_url}" target="_blank" style="color:var(--primary);text-decoration:underline;">${c.commit.message.split('\n')[0]}</a>
+                  <span style="font-size:0.85em;color:#666;"> – ${c.commit.author.name}</span>
+                </li>
+              `).join('');
+            });
+        </script>
+      </section>
 
-  <!-- Blog/Notícias -->
-  <section class="py-12 px-6" id="blog" aria-label="Blog e novidades">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="text-2xl font-bold mb-4 text-ouro">Blog & Novidades</h2>
-      <article class="bg-fundo rounded-lg p-4 shadow-lg mb-4">
-        <h3 class="text-ouroClaro mb-2">[28/07/2025] Lançamento da versão 1.2.5 🚀</h3>
-        <p class="text-textoClaro">Nova versão com melhorias no terminal e integração de módulos. <a href="https://github.com/seuusuario/limio/releases/tag/v1.2.5" class="text-ouro underline">Veja detalhes</a>.</p>
-      </article>
-      <article class="bg-fundo rounded-lg p-4 shadow-lg mb-4">
-        <h3 class="text-ouroClaro mb-2">[10/07/2025] Comunidade Limio criada!</h3>
-        <p class="text-textoClaro">Participe dos nossos canais e contribua para o projeto. <a href="#community" class="text-ouro underline">Saiba mais</a>.</p>
-      </article>
-      <!-- Adicione novos artigos aqui -->
-    </div>
-  </section>
+      <!-- Comunidade -->
+      <section id="community" aria-label="Links da comunidade">
+        <h2>Comunidade Limio</h2>
+        <div class="community-links">
+          <a href="#">Discord</a>
+          <a href="#">Telegram</a>
+          <a href="#">GitHub</a>
+          <a href="#">E-mail</a>
+        </div>
+        <p style="text-align:center;">Participe dos nossos canais, tire dúvidas e acompanhe as novidades!</p>
+      </section>
 
-  <!-- Footer Profissional -->
-  <footer class="py-8 px-6 bg-fundo text-textoClaro text-center mt-12 rounded-lg" aria-label="Rodapé">
-    <div class="mb-2">
-      <a href="https://github.com/seuusuario/limio" target="_blank" class="text-ouro hover:text-ouroClaro mx-2">GitHub</a> |
-      <a href="#community" class="text-ouro hover:text-ouroClaro mx-2">Comunidade</a> |
-      <a href="#guia-dev" class="text-ouro hover:text-ouroClaro mx-2">Desenvolvedores</a> |
-      <a href="mailto:contato@limio.org" class="text-ouro hover:text-ouroClaro mx-2">Contato</a> |
-      <a href="/privacidade.html" class="text-ouro hover:text-ouroClaro mx-2">Privacidade</a>
-    </div>
-    <div class="text-xs text-ouroClaro">© Limio <span id="ano"></span> | Licença MIT</div>
-  </footer>
-  <script>document.getElementById('ano').textContent = (new Date()).getFullYear();</script>
+      <!-- Guia Dev -->
+      <section id="guia-dev" aria-label="Guia para desenvolvedores">
+        <h2>Guia Rápido para Devs</h2>
+        <ol>
+          <li>Clone o projeto: <code>git clone https://github.com/seuusuario/limio.git</code></li>
+          <li>Instale dependências: <code>cd limio &amp;&amp; npm install</code></li>
+          <li>Rode o Limio localmente: <code>npm start</code></li>
+          <li>Crie módulos: <code>npm run create-module meu-modulo</code></li>
+          <li>Consulte a <a href="#">Wiki</a> e <a href="#">API</a></li>
+        </ol>
+      </section>
+
+      <!-- Feedback -->
+      <section id="feedback" aria-label="Formulário de feedback">
+        <h2>Envie Feedback ou Sugestão</h2>
+        <form class="feedback-form" action="https://formspree.io/f/SEU_FORM_ID" method="POST">
+          <label>Nome<input name="nome" type="text" required></label>
+          <label>E-mail<input name="email" type="email" required></label>
+          <label>Mensagem<textarea name="mensagem" rows="4" required></textarea></label>
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+
+      <!-- Blog/Notícias -->
+      <section id="blog" aria-label="Blog e novidades" class="blog">
+        <h2>Blog & Novidades</h2>
+        <article>
+          <strong>[28/07/2025] Lançamento versão 1.2.5 🚀</strong>
+          <p>Nova versão com melhorias no terminal e integração de módulos. <a href="#">Veja detalhes</a>.</p>
+        </article>
+        <article>
+          <strong>[10/07/2025] Comunidade Limio criada!</strong>
+          <p>Participe dos nossos canais e contribua para o projeto. <a href="#community">Saiba mais</a>.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      &copy; Limio <span id="ano"></span> &mdash; Blockchain Modular &nbsp;|&nbsp;
+      <a href="#">GitHub</a> &nbsp;|&nbsp;
+      <a href="#">Privacidade</a>
+      <script>document.getElementById('ano').textContent = (new Date()).getFullYear();</script>
+    </footer>
+  </div>
 </body>
 </html>
