@@ -1,312 +1,165 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Limio - Blockchain Modular</title>
-  <meta name="description" content="Limio é uma blockchain modular, open source, com terminal interativo e comunidade ativa.">
-  <meta property="og:title" content="Limio - Blockchain Modular" />
-  <meta property="og:description" content="Conheça o Limio, blockchain modular, terminal interativo, comunidade ativa e open source." />
-  <meta property="og:image" content="https://limio.org/og-image.png" />
-  <meta property="og:url" content="https://limio.org/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Limio - Blockchain Modular" />
-  <meta name="twitter:description" content="Conheça o Limio, blockchain modular, terminal interativo, comunidade ativa e open source." />
-  <meta name="twitter:image" content="https://limio.org/og-image.png" />
-  <link rel="icon" href="favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Limio - Blockchain Modular, open source com terminal interativo e comunidade ativa." />
+  <title>Limio System</title>
+  <link rel="icon" href="LimioOne.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f6f7fb;
-      --bg-dark: #18181b;
-      --text: #232323;
-      --text-dark: #ededed;
+      --bg: #f9fafb;
+      --bg-dark: #111827;
+      --text: #1f2937;
+      --text-dark: #f3f4f6;
       --primary: #2563eb;
-      --primary-dark: #60a5fa;
-      --card: #fff;
-      --card-dark: #23232b;
-      --border: #d1d5db;
-      --radius: 16px;
-      --gap: 2.5rem;
+      --accent: #60a5fa;
+      --radius: 12px;
+      --transition: 0.3s;
     }
-    html, body {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
-      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      min-height: 100vh;
-      scroll-behavior: smooth;
+      line-height: 1.6;
+      transition: background var(--transition), color var(--transition);
     }
-    body.dark {
-      background: var(--bg-dark);
-      color: var(--text-dark);
-    }
-    .container { max-width: 800px; margin: 0 auto; padding: 0 var(--gap);}
     header {
-      padding: var(--gap) 0 var(--gap) 0;
+      padding: 2rem 1rem;
       text-align: center;
-      background: var(--card);
-      border-radius: var(--radius);
-      margin-top: var(--gap);
-      box-shadow: 0 2px 8px #0002;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
-    body.dark header { background: var(--card-dark);}
-    h1 { font-size: 2.5rem; margin:0 0 0.5rem; color: var(--primary);}
-    h2 { font-size: 2rem; margin: 2rem 0 1rem 0; color: var(--primary);}
-    .badge-row {
-      display: flex; gap: 1rem; justify-content: center; align-items: center; margin-bottom: 1rem;
-      flex-wrap: wrap;
-    }
-    main section {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: 0 2px 8px #0001;
-      padding: var(--gap);
-      margin: var(--gap) 0;
-    }
-    body.dark main section { background: var(--card-dark);}
-    .terminal {background: #232323; color: #c7d4f7; border-radius: var(--radius); font-family: monospace; padding: 1rem; margin-bottom: 1rem; min-height: 120px; max-height: 240px; overflow-y: auto;}
-    .terminal-form {display: flex; gap: 0.5rem; margin-bottom: 0.5rem;}
-    .terminal-form input {flex: 1; padding: 0.5rem; border-radius: 8px; border: 1px solid var(--border); font-family: monospace; background: #f9fafb; color: #232323;}
-    body.dark .terminal-form input {background: #23232b; color: #ededed;}
-    .terminal-form button {padding: 0.5rem 1.2rem; border: none; border-radius: 8px; background: var(--primary); color: #fff; font-weight: bold; cursor: pointer;}
-    .divider {margin: var(--gap) 0; border-top: 1px solid var(--border);}
-    .card-row {display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;}
-    .card {
-      background: var(--bg);
-      border-radius: var(--radius);
-      box-shadow: 0 1px 4px #0001;
-      padding: 1.2rem;
-      flex: 1 1 320px;
-      min-width: 220px;
-      max-width: 340px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    header img {
+      height: 60px;
       margin-bottom: 1rem;
-      text-align: center;
     }
-    body.dark .card {background: #22222b;}
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      color: #4b5563;
+    }
+    main {
+      padding: 2rem 1rem;
+      max-width: 960px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .card {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1.5rem;
+    }
+    iframe {
+      width: 100%;
+      height: 240px;
+      border: none;
+      border-radius: var(--radius);
+    }
     .community-links {
-      display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin: 1rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
     }
     .community-links a {
       background: var(--primary);
-      color: #fff; font-weight: 500; text-decoration: none;
-      padding: 0.7rem 1.1rem; border-radius: 8px; box-shadow: 0 1px 4px #0001;
-      transition: background 0.2s;
-      display: inline-block;
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: background var(--transition);
     }
-    .community-links a:hover {background: var(--primary-dark);}
-    .feedback-form label {display: block; margin-bottom: 0.7rem;}
-    .feedback-form input, .feedback-form textarea {
-      width: 100%; padding: 0.5rem; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 1rem;
-      background: #f9fafb; color: #232323; font-size: 1rem;
+    .community-links a:hover {
+      background: var(--accent);
     }
-    body.dark .feedback-form input, body.dark .feedback-form textarea {background: #23232b; color: #ededed;}
-    .feedback-form button {padding: 0.7rem 1.6rem; border: none; border-radius: 8px; background: var(--primary); color: #fff; font-weight: bold;}
-    .blog article {margin-bottom: 1.5rem; background: var(--bg); border-radius: 12px; box-shadow: 0 1px 4px #0001; padding: 1rem;}
-    body.dark .blog article {background: #23232b;}
-    .github-row {display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;}
-    .github-row .card {align-items: flex-start; max-width: 400px;}
-    .contributors {display: flex; gap: 0.7rem; flex-wrap: wrap;}
-    .contributors a {text-decoration: none;}
-    .contributors img {width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--primary);}
     footer {
       text-align: center;
-      font-size: 0.97em;
-      color: #666;
-      margin: 2rem 0 0 0;
-      padding: 2rem 0 1rem 0;
-      background: none;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #6b7280;
     }
-    .theme-btn {position: fixed; top:1rem; right: 1rem; background: var(--primary); color: #fff; border-radius: 50%; width: 44px; height:44px; border:none; font-size:1.2rem; box-shadow:0 2px 8px #0002; cursor:pointer; z-index:10;}
-    @media (max-width: 900px) {
-      .container{padding:0 1rem;}
-      .card-row, .github-row{flex-direction:column; gap:1rem;}
-      .card{max-width:100%;}
-    }
-    @media (max-width:600px) {
-      main section, header{padding: 1rem;}
-      .theme-btn{top:0.5rem; right:0.5rem;}
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Tema claro/escuro -->
-  <button id="theme-btn" class="theme-btn" aria-label="Alternar tema">🌙</button>
-  <script>
-    function setTheme(mode) {
-      document.body.classList.toggle('dark', mode === 'dark');
-      localStorage.setItem('theme', mode);
-      document.getElementById('theme-btn').textContent = mode === 'dark' ? '🌙' : '🌑';
-    }
-    window.addEventListener('DOMContentLoaded', () => {
-      setTheme(localStorage.getItem('theme') || 'light');
-      document.getElementById('theme-btn').onclick = () => {
-        setTheme(document.body.classList.contains('dark') ? 'light' : 'dark');
-      };
-    });
-  </script>
+  <header>
+    <img src="LimioOne.png" alt="Logotipo Limio" />
+    <h1>Limio System</h1>
+    <p>Blockchain modular, open source, simples e poderosa.</p>
+  </header>
 
-  <div class="container">
-    <header>
-      <h1>Limio</h1>
-      <p>Blockchain modular, open source, com terminal interativo e comunidade ativa.</p>
-      <div class="badge-row">
-        <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="Licença MIT" />
-        <img src="https://img.shields.io/badge/audit-passing-brightgreen.svg" alt="Auditoria de segurança" />
+  <main>
+    <section>
+      <h2>Veja em Ação</h2>
+      <div class="card">
+        <iframe src="https://www.youtube.com/embed/SEU_VIDEO_ID" title="Demonstração Limio"></iframe>
+        <p style="margin-top: 1rem; text-align: center;">Assista como usar o Limio para minerar, consultar e construir.</p>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <!-- Terminal Interativo -->
-      <section id="terminal-demo" aria-label="Terminal interativo">
-        <h2>Terminal Limio</h2>
-        <div id="terminal" class="terminal" aria-live="polite"></div>
-        <form id="terminal-form" class="terminal-form" autocomplete="off">
-          <span>limio@node:~$</span>
-          <input id="terminal-input" type="text" placeholder="Digite comando..." aria-label="Comando do terminal" />
-          <button type="submit">Enviar</button>
-        </form>
-        <small>Comandos: <code>mine</code>, <code>status</code>, <code>help</code>, <code>clear</code></small>
-        <script>
-          const terminal = document.getElementById('terminal');
-          const form = document.getElementById('terminal-form');
-          const input = document.getElementById('terminal-input');
-          const cmds = {
-            mine: '⛏️ Mineração iniciada... bloco #12345 minerado!',
-            status: '🌐 Rede ativa. Blocos: 12345 | Peers: 8',
-            help: 'Comandos: mine, status, help, clear',
-            clear: '',
-          };
-          form.onsubmit = (e) => {
-            e.preventDefault();
-            let val = input.value.trim().toLowerCase();
-            if (!val) return;
-            if (val === 'clear') terminal.innerHTML = '';
-            else terminal.innerHTML += `<div>&gt; ${val}<br>${cmds[val] || 'Comando não reconhecido.'}</div>`;
-            input.value = '';
-            terminal.scrollTop = terminal.scrollHeight;
-          };
-          terminal.innerHTML = '<div>&gt; help<br>Comandos: mine, status, help, clear</div>';
-        </script>
-      </section>
+    <section>
+      <h2>Comunidade</h2>
+      <div class="community-links">
+        <a href="#">Discord</a>
+        <a href="#">Telegram</a>
+        <a href="#">GitHub</a>
+        <a href="#">Email</a>
+      </div>
+    </section>
 
-      <!-- Demonstração vídeo/GIF -->
-      <section id="demo-video" aria-label="Demonstração em vídeo">
-        <h2>Veja o Limio em ação</h2>
-        <div class="card">
-          <!-- Substitua o src pelo link do seu vídeo ou GIF! -->
-          <iframe
-            width="100%"
-            height="210"
-            src="https://www.youtube.com/embed/SEU_VIDEO_ID"
-            title="Limio Blockchain Demo"
-            frameborder="0"
-            allowfullscreen
-            style="background:#000"
-          ></iframe>
-          <small>Assista como instalar, minerar e consultar saldo em minutos.</small>
-        </div>
-      </section>
-
-      <!-- Widget GitHub -->
-      <section id="github-widget" aria-label="Widget GitHub">
-        <h2>Contribuição Comunitária</h2>
-        <div class="github-row">
-          <div class="card" style="align-items:center;">
-            <strong>Contribuidores</strong>
-            <div id="contributors" class="contributors"></div>
-          </div>
-          <div class="card">
-            <strong>Últimos commits</strong>
-            <ul id="commits-list" style="list-style:none;padding:0;"></ul>
-          </div>
-        </div>
-        <div style="text-align:center; margin-top:1rem;">
-          <a href="https://github.com/seuusuario/limio" target="_blank" class="community-links">Ver no GitHub</a>
-        </div>
-        <script>
-          const repo = "seuusuario/limio";
-          fetch(`https://api.github.com/repos/${repo}/contributors`)
-            .then(res => res.json())
-            .then(data => {
-              const ctn = document.getElementById('contributors');
-              ctn.innerHTML = data.slice(0, 10).map(u => `
-                <a href="${u.html_url}" target="_blank" title="${u.login}">
-                  <img src="${u.avatar_url}" alt="${u.login}" />
-                </a>
-              `).join('');
-            });
-          fetch(`https://api.github.com/repos/${repo}/commits`)
-            .then(res => res.json())
-            .then(data => {
-              const ul = document.getElementById('commits-list');
-              ul.innerHTML = data.slice(0, 5).map(c => `
-                <li style="margin-bottom:0.7rem;">
-                  <a href="${c.html_url}" target="_blank" style="color:var(--primary);text-decoration:underline;">${c.commit.message.split('\n')[0]}</a>
-                  <span style="font-size:0.85em;color:#666;"> – ${c.commit.author.name}</span>
-                </li>
-              `).join('');
-            });
-        </script>
-      </section>
-
-      <!-- Comunidade -->
-      <section id="community" aria-label="Links da comunidade">
-        <h2>Comunidade Limio</h2>
-        <div class="community-links">
-          <a href="#">Discord</a>
-          <a href="#">Telegram</a>
-          <a href="#">GitHub</a>
-          <a href="#">E-mail</a>
-        </div>
-        <p style="text-align:center;">Participe dos nossos canais, tire dúvidas e acompanhe as novidades!</p>
-      </section>
-
-      <!-- Guia Dev -->
-      <section id="guia-dev" aria-label="Guia para desenvolvedores">
-        <h2>Guia Rápido para Devs</h2>
+    <section>
+      <h2>Guia para Desenvolvedores</h2>
+      <div class="card">
         <ol>
-          <li>Clone o projeto: <code>git clone https://github.com/seuusuario/limio.git</code></li>
-          <li>Instale dependências: <code>cd limio &amp;&amp; npm install</code></li>
-          <li>Rode o Limio localmente: <code>npm start</code></li>
-          <li>Crie módulos: <code>npm run create-module meu-modulo</code></li>
-          <li>Consulte a <a href="#">Wiki</a> e <a href="#">API</a></li>
+          <li>Clone: <code>git clone https://github.com/LimyLimionaider/limio.git</code></li>
+          <li>Instale: <code>cd limio && npm install</code></li>
+          <li>Execute: <code>npm start</code></li>
         </ol>
-      </section>
+      </div>
+    </section>
 
-      <!-- Feedback -->
-      <section id="feedback" aria-label="Formulário de feedback">
-        <h2>Envie Feedback ou Sugestão</h2>
-        <form class="feedback-form" action="https://formspree.io/f/SEU_FORM_ID" method="POST">
-          <label>Nome<input name="nome" type="text" required></label>
-          <label>E-mail<input name="email" type="email" required></label>
-          <label>Mensagem<textarea name="mensagem" rows="4" required></textarea></label>
-          <button type="submit">Enviar</button>
-        </form>
-      </section>
+    <section>
+      <h2>Últimas Notícias</h2>
+      <div class="card">
+        <strong>28/07/2025 - Versão 1.2.5</strong>
+        <p>Integração de novos módulos, melhorias no terminal e ajustes de desempenho.</p>
+      </div>
+    </section>
+  </main>
 
-      <!-- Blog/Notícias -->
-      <section id="blog" aria-label="Blog e novidades" class="blog">
-        <h2>Blog & Novidades</h2>
-        <article>
-          <strong>[28/07/2025] Lançamento versão 1.2.5 🚀</strong>
-          <p>Nova versão com melhorias no terminal e integração de módulos. <a href="#">Veja detalhes</a>.</p>
-        </article>
-        <article>
-          <strong>[10/07/2025] Comunidade Limio criada!</strong>
-          <p>Participe dos nossos canais e contribua para o projeto. <a href="#community">Saiba mais</a>.</p>
-        </article>
-      </section>
-    </main>
-
-    <footer>
-      &copy; Limio <span id="ano"></span> &mdash; Blockchain Modular &nbsp;|&nbsp;
-      <a href="#">GitHub</a> &nbsp;|&nbsp;
-      <a href="#">Privacidade</a>
-      <script>document.getElementById('ano').textContent = (new Date()).getFullYear();</script>
-    </footer>
-  </div>
+  <footer>
+    &copy; <span id="ano"></span> Limio System &mdash; Todos os direitos reservados.
+    <script>document.getElementById("ano").textContent = new Date().getFullYear();</script>
+  </footer>
 </body>
 </html>
