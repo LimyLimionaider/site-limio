@@ -3,239 +3,186 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Limio - Blockchain Modular, open source com terminal interativo e comunidade ativa." />
-  <meta property="og:title" content="Limio System" />
-  <meta property="og:description" content="Blockchain modular, terminal interativo, comunidade ativa e open source." />
-  <meta property="og:image" content="https://limio.org/og-image.png" />
-  <meta property="og:url" content="https://limylimionaider.github.io/site-limio/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Limio System" />
-  <meta name="twitter:description" content="Blockchain modular, terminal interativo, comunidade ativa e open source." />
-  <meta name="twitter:image" content="https://limio.org/og-image.png" />
+  <meta name="description" content="Limio - Blockchain Modular com terminal interativo, REST API, mineração e comunidade." />
   <title>Limio System</title>
-  <link rel="icon" href="LimioOne.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root {
-      --bg: #090e16;
-      --bg-dark: #05070c;
-      --text: #e6edf3;
-      --text-dark: #cbd5e1;
+      --bg: #0a0f1a;
+      --text: #e2e8f0;
       --primary: #00bcd4;
       --accent: #00acc1;
       --radius: 12px;
-      --transition: 0.3s;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
     }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
+      margin: 0;
       line-height: 1.6;
-      transition: background var(--transition), color var(--transition);
     }
     header {
-      padding: 2rem 1rem;
       text-align: center;
-      background: #0e1625;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-    header img {
-      height: 60px;
-      margin-bottom: 1rem;
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: var(--primary);
+      margin: 1rem 0 0.5rem;
     }
     header p {
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
-      color: var(--text-dark);
+      font-size: 1.2rem;
+      color: #cbd5e1;
+    }
+    .cta-button {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.8rem 2rem;
+      margin-top: 1.5rem;
+      display: inline-block;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .cta-button:hover {
+      background: var(--accent);
     }
     main {
-      padding: 2rem 1rem;
       max-width: 960px;
       margin: auto;
+      padding: 2rem 1rem;
     }
     section {
       margin-bottom: 3rem;
     }
     h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+      font-size: 2rem;
       color: var(--primary);
+      margin-bottom: 1rem;
     }
     .card {
       background: #111827;
       padding: 1.5rem;
       border-radius: var(--radius);
-      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
-      margin-bottom: 1.5rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
-    iframe {
-      width: 100%;
-      height: 240px;
-      border: none;
+    pre.terminal {
+      background: #0f172a;
+      padding: 1rem;
       border-radius: var(--radius);
+      color: #7dd3fc;
+      overflow-x: auto;
     }
-    .community-links {
-      display: flex;
-      flex-wrap: wrap;
+    ul.status {
+      list-style: none;
+      padding: 0;
+    }
+    ul.status li {
+      margin: 0.5rem 0;
+    }
+    .modules {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
-      justify-content: center;
     }
-    .community-links a {
-      background: var(--primary);
-      color: #fff;
-      padding: 0.75rem 1.25rem;
-      border-radius: var(--radius);
-      text-decoration: none;
-      font-weight: 600;
-      transition: background var(--transition);
-    }
-    .community-links a:hover {
-      background: var(--accent);
+    .modules .card {
+      text-align: center;
     }
     footer {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 2rem;
       font-size: 0.9rem;
       color: #94a3b8;
-    }
-    input, textarea, button {
-      background: #0f172a;
-      color: #e2e8f0;
-    }
-    input::placeholder, textarea::placeholder {
-      color: #64748b;
-    }
-    input, textarea {
-      border: 1px solid #334155;
-    }
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      h2 {
-        font-size: 1.5rem;
-      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="LimioOne.png" alt="Logotipo Limio" />
+  <header data-aos="fade-down">
     <h1>Limio System</h1>
-    <p>Blockchain modular, open source, simples e poderosa.</p>
+    <p>Blockchain modular, com mineração, terminal e REST API.</p>
+    <a href="#dev" class="cta-button">Comece agora</a>
   </header>
-
   <main>
     <section data-aos="fade-up">
-      <h2>Sobre o Projeto</h2>
+      <h2>Experiência Limio (CLI)</h2>
       <div class="card">
-        <p>O Limio System é uma blockchain modular e interativa que promove descentralização real, com código aberto e acessível para todos. Com terminal CLI intuitivo e módulos pluggáveis, o Limio simplifica o uso de redes blockchain para a nova geração de desenvolvedores e usuários.</p>
+        <pre class="terminal">
+$ limio start
+⛓️  Conectando a peers...
+✔️  Bloco #1432 minerado em 3.4s
+$ limio wallet balance
+💰  Saldo: 45.21 LIM
+        </pre>
       </div>
     </section>
-
     <section data-aos="fade-up">
-      <h2>Funcionalidades</h2>
+      <h2>Status da Rede</h2>
       <div class="card">
-        <ul>
-          <li>⚡ Terminal interativo CLI</li>
-          <li>⛏️ Mecanismo de mineração local</li>
-          <li>🧩 Módulos plug & play</li>
-          <li>🔓 Open Source e auditável</li>
+        <ul class="status">
+          <li>💰 Preço: <strong>R$ 0,45</strong></li>
+          <li>⛓️ Blocos Minerados: <strong>1.205</strong></li>
+          <li>📡 Nós Ativos: <strong>37</strong></li>
         </ul>
       </div>
     </section>
+    <section data-aos="fade-up">
+      <h2>Módulos Essenciais</h2>
+      <div class="modules">
+        <div class="card">🧱 Blockchain Core</div>
+        <div class="card">👛 HD Wallet</div>
+        <div class="card">🌐 P2P Mesh</div>
+        <div class="card">🛠️ REST API</div>
+        <div class="card">📊 Monitoramento</div>
+        <div class="card">⚖️ Governança Quadrática</div>
+      </div>
+    </section>
 
     <section data-aos="fade-up">
-      <h2>Roadmap</h2>
+      <h2>Como funciona a Mineração?</h2>
       <div class="card">
-        <ul>
-          <li><strong>Q2 2025:</strong> Terminal funcional + mineração</li>
-          <li><strong>Q3 2025:</strong> Lançamento de módulos externos</li>
-          <li><strong>Q4 2025:</strong> API pública + Explorer integrado</li>
-          <li><strong>2026:</strong> Versão 2.0 com contratos leves</li>
-        </ul>
+        <p>O módulo <strong>Miner.cpp</strong> é responsável por executar a mineração local baseada em CPU, validando blocos e integrando-os à cadeia. Utiliza um mecanismo leve, eficiente e com verificação por consenso.</p>
       </div>
     </section>
 
     <section data-aos="fade-up">
-      <h2>FAQ</h2>
+      <h2>Rede P2P Descentralizada</h2>
       <div class="card">
-        <strong>O que é o Limio?</strong>
-        <p>Uma blockchain modular com terminal interativo e foco em simplicidade.</p>
-        <strong>Preciso pagar para usar?</strong>
-        <p>Não. O Limio é gratuito e open source.</p>
-        <strong>Como contribuo?</strong>
-        <p>Via GitHub, comunidade ou desenvolvendo novos módulos.</p>
+        <p>Com base em <code>P2PNode.cpp</code>, a arquitetura conecta nós automaticamente via protocolo handshake. Isso garante comunicação autônoma, broadcasting de blocos e sincronização eficiente entre pares.</p>
       </div>
     </section>
 
     <section data-aos="fade-up">
-      <h2>Veja em Ação</h2>
+      <h2>REST API Pública</h2>
       <div class="card">
-        <iframe src="https://www.youtube.com/embed/SEU_VIDEO_ID" title="Demonstração Limio"></iframe>
-        <p style="margin-top: 1rem; text-align: center;">Assista como usar o Limio para minerar, consultar e construir.</p>
+        <p>Através de <code>RestAPI.cpp</code> e <code>RestServer.cpp</code>, o Limio oferece endpoints seguros para consultar carteira, enviar transações, verificar blocos e acessar métricas da rede.</p>
       </div>
     </section>
 
     <section data-aos="fade-up">
-      <h2>Comunidade</h2>
-      <div class="community-links">
-        <a href="#">Discord</a>
-        <a href="#">Telegram</a>
-        <a href="#">GitHub</a>
-        <a href="#">Email</a>
+      <h2>Governança Quadrática</h2>
+      <div class="card">
+        <p>O módulo <code>GovernanceQuadratic.cpp</code> implementa um modelo de decisão onde o poder de voto é distribuído proporcionalmente ao envolvimento do usuário, promovendo decisões mais justas e participativas.</p>
       </div>
     </section>
 
-    <section data-aos="fade-up">
+    <section id="dev" data-aos="fade-up">
       <h2>Guia para Desenvolvedores</h2>
       <div class="card">
         <ol>
           <li>Clone: <code>git clone https://github.com/LimyLimionaider/limio.git</code></li>
-          <li>Instale: <code>cd limio && npm install</code></li>
-          <li>Execute: <code>npm start</code></li>
+          <li>Instale: <code>cd limio && cmake . && make</code></li>
+          <li>Execute: <code>./limio start</code></li>
         </ol>
       </div>
     </section>
-
-    <section data-aos="fade-up">
-      <h2>Últimas Notícias</h2>
-      <div class="card">
-        <strong>28/07/2025 - Versão 1.2.5</strong>
-        <p>Integração de novos módulos, melhorias no terminal e ajustes de desempenho.</p>
-      </div>
-    </section>
-
-    <section data-aos="fade-up">
-      <h2>Fale Conosco</h2>
-      <div class="card">
-        <form action="https://formspree.io/f/SEU_ID" method="POST">
-          <p><input type="text" name="nome" placeholder="Seu nome" required style="width:100%;padding:0.5rem;margin-bottom:1rem;border-radius:var(--radius);border:1px solid #ccc"></p>
-          <p><input type="email" name="email" placeholder="Seu email" required style="width:100%;padding:0.5rem;margin-bottom:1rem;border-radius:var(--radius);border:1px solid #ccc"></p>
-          <p><textarea name="mensagem" placeholder="Mensagem" rows="4" required style="width:100%;padding:0.5rem;border-radius:var(--radius);border:1px solid #ccc"></textarea></p>
-          <p><button type="submit" style="background:var(--primary);color:#fff;padding:0.75rem 1.5rem;border:none;border-radius:var(--radius);font-weight:bold;cursor:pointer;">Enviar</button></p>
-        </form>
-      </div>
-    </section>
   </main>
-
   <footer>
-    &copy; <span id="ano"></span> Limio System &mdash; Todos os direitos reservados.
+    &copy; <span id="ano"></span> Limio System. Código livre e modular.
     <script>document.getElementById("ano").textContent = new Date().getFullYear();</script>
   </footer>
-
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init();</script>
 </body>
