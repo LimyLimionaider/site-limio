@@ -4,11 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Limio - Blockchain Modular, open source com terminal interativo e comunidade ativa." />
+  <meta property="og:title" content="Limio System" />
+  <meta property="og:description" content="Blockchain modular, terminal interativo, comunidade ativa e open source." />
+  <meta property="og:image" content="https://limio.org/og-image.png" />
+  <meta property="og:url" content="https://limylimionaider.github.io/site-limio/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Limio System" />
+  <meta name="twitter:description" content="Blockchain modular, terminal interativo, comunidade ativa e open source." />
+  <meta name="twitter:image" content="https://limio.org/og-image.png" />
   <title>Limio System</title>
   <link rel="icon" href="LimioOne.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root {
       --bg: #f9fafb;
@@ -119,7 +128,50 @@
   </header>
 
   <main>
-    <section>
+    <section data-aos="fade-up">
+      <h2>Sobre o Projeto</h2>
+      <div class="card">
+        <p>O Limio System é uma blockchain modular e interativa que promove descentralização real, com código aberto e acessível para todos. Com terminal CLI intuitivo e módulos pluggáveis, o Limio simplifica o uso de redes blockchain para a nova geração de desenvolvedores e usuários.</p>
+      </div>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2>Funcionalidades</h2>
+      <div class="card">
+        <ul>
+          <li>⚡ Terminal interativo CLI</li>
+          <li>⛏️ Mecanismo de mineração local</li>
+          <li>🧩 Módulos plug & play</li>
+          <li>🔓 Open Source e auditável</li>
+        </ul>
+      </div>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2>Roadmap</h2>
+      <div class="card">
+        <ul>
+          <li><strong>Q2 2025:</strong> Terminal funcional + mineração</li>
+          <li><strong>Q3 2025:</strong> Lançamento de módulos externos</li>
+          <li><strong>Q4 2025:</strong> API pública + Explorer integrado</li>
+          <li><strong>2026:</strong> Versão 2.0 com contratos leves</li>
+        </ul>
+      </div>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2>FAQ</h2>
+      <div class="card">
+        <strong>O que é o Limio?</strong>
+        <p>Uma blockchain modular com terminal interativo e foco em simplicidade.</p>
+        <strong>Preciso pagar para usar?</strong>
+        <p>Não. O Limio é gratuito e open source.</p>
+        <strong>Como contribuo?</strong>
+        <p>Via GitHub, comunidade ou desenvolvendo novos módulos.</p>
+      </div>
+    </section>
+
+    <section data-aos="fade-up">
       <h2>Veja em Ação</h2>
       <div class="card">
         <iframe src="https://www.youtube.com/embed/SEU_VIDEO_ID" title="Demonstração Limio"></iframe>
@@ -127,7 +179,7 @@
       </div>
     </section>
 
-    <section>
+    <section data-aos="fade-up">
       <h2>Comunidade</h2>
       <div class="community-links">
         <a href="#">Discord</a>
@@ -137,7 +189,7 @@
       </div>
     </section>
 
-    <section>
+    <section data-aos="fade-up">
       <h2>Guia para Desenvolvedores</h2>
       <div class="card">
         <ol>
@@ -148,11 +200,23 @@
       </div>
     </section>
 
-    <section>
+    <section data-aos="fade-up">
       <h2>Últimas Notícias</h2>
       <div class="card">
         <strong>28/07/2025 - Versão 1.2.5</strong>
         <p>Integração de novos módulos, melhorias no terminal e ajustes de desempenho.</p>
+      </div>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2>Fale Conosco</h2>
+      <div class="card">
+        <form action="https://formspree.io/f/SEU_ID" method="POST">
+          <p><input type="text" name="nome" placeholder="Seu nome" required style="width:100%;padding:0.5rem;margin-bottom:1rem;border-radius:var(--radius);border:1px solid #ccc"></p>
+          <p><input type="email" name="email" placeholder="Seu email" required style="width:100%;padding:0.5rem;margin-bottom:1rem;border-radius:var(--radius);border:1px solid #ccc"></p>
+          <p><textarea name="mensagem" placeholder="Mensagem" rows="4" required style="width:100%;padding:0.5rem;border-radius:var(--radius);border:1px solid #ccc"></textarea></p>
+          <p><button type="submit" style="background:var(--primary);color:#fff;padding:0.75rem 1.5rem;border:none;border-radius:var(--radius);font-weight:bold;cursor:pointer;">Enviar</button></p>
+        </form>
       </div>
     </section>
   </main>
@@ -161,5 +225,8 @@
     &copy; <span id="ano"></span> Limio System &mdash; Todos os direitos reservados.
     <script>document.getElementById("ano").textContent = new Date().getFullYear();</script>
   </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>
