@@ -20,12 +20,12 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root {
-      --bg: #f9fafb;
-      --bg-dark: #111827;
-      --text: #1f2937;
-      --text-dark: #f3f4f6;
-      --primary: #2563eb;
-      --accent: #60a5fa;
+      --bg: #090e16;
+      --bg-dark: #05070c;
+      --text: #e6edf3;
+      --text-dark: #cbd5e1;
+      --primary: #00bcd4;
+      --accent: #00acc1;
       --radius: 12px;
       --transition: 0.3s;
     }
@@ -44,8 +44,8 @@
     header {
       padding: 2rem 1rem;
       text-align: center;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      background: #0e1625;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
     header img {
       height: 60px;
@@ -58,7 +58,7 @@
     header p {
       margin-top: 0.5rem;
       font-size: 1.1rem;
-      color: #4b5563;
+      color: var(--text-dark);
     }
     main {
       padding: 2rem 1rem;
@@ -74,10 +74,10 @@
       color: var(--primary);
     }
     .card {
-      background: #ffffff;
+      background: #111827;
       padding: 1.5rem;
       border-radius: var(--radius);
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
       margin-bottom: 1.5rem;
     }
     iframe {
@@ -108,7 +108,17 @@
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
-      color: #6b7280;
+      color: #94a3b8;
+    }
+    input, textarea, button {
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #64748b;
+    }
+    input, textarea {
+      border: 1px solid #334155;
     }
     @media (max-width: 600px) {
       header h1 {
