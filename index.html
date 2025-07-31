@@ -669,6 +669,36 @@
       opacity: 1;
       transform: translateY(0);
     }
+    
+    .share-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .share-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg-glass);
+      color: var(--text-primary);
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    .share-btn:hover {
+      background: rgba(212, 175, 55, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .share-btn i {
+      font-size: 1.2rem;
+    }
   </style>
 </head>
 <body>
@@ -837,56 +867,48 @@
 
     <!-- Share Section -->
     <section data-aos="fade-up">
-      <h2>Compartilhe o Limio</h2>
-      <p class="section-subtitle">Espalhe a revolução blockchain</p>
-      <div class="share-section">
-        <div class="share-container">
-          <!-- QR Code Section -->
-          <div class="qr-section">
-            <div class="qr-label">Escaneie para acessar</div>
-            <div class="qr-code">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://limylimionaider.github.io/site-limio/" alt="QR Code do Limio System">
-            </div>
-            <div class="site-url">limio.system</div>
-          </div>
+  <h2>Compartilhe o Limio</h2>
+  <p class="section-subtitle">Espalhe a revolução blockchain</p>
+  <div class="share-section">
+    <div class="share-container">
 
-          <!-- Divider -->
-          <div class="share-divider"></div>
+      <!-- QR Code Section -->
+      <div class="qr-section">
+        <div class="qr-label">Escaneie para acessar</div>
+        <div class="qr-code">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://limylimionaider.github.io/site-limio/" alt="QR Code do Limio System">
+        </div>
+        <div class="site-url">limio.system</div>
+      </div>
 
-          <!-- Social Share Section -->
-          <div class="social-share">
-            <div class="share-title">Compartilhar via:</div>
-            <div class="share-buttons">
-              <a href="https://twitter.com/intent/tweet?text=Conheça%20o%20Limio%20System%20-%20Blockchain%20modular%20de%20próxima%20geração!&url=https://limylimionaider.github.io/site-limio/&hashtags=blockchain,limio,crypto" target="_blank" class="share-btn share-twitter">
-                <span>🐦</span>
-                <span>Twitter</span>
-              </a>
-              
-              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://limylimionaider.github.io/site-limio/" target="_blank" class="share-btn share-linkedin">
-                <span>💼</span>
-                <span>LinkedIn</span>
-              </a>
-              
-              <a href="https://wa.me/?text=Conheça%20o%20Limio%20System%20-%20Blockchain%20modular%20de%20próxima%20geração!%20https://limylimionaider.github.io/site-limio/" target="_blank" class="share-btn share-whatsapp">
-                <span>💬</span>
-                <span>WhatsApp</span>
-              </a>
-              
-              <a href="https://t.me/share/url?url=https://limylimionaider.github.io/site-limio/&text=Conheça%20o%20Limio%20System%20-%20Blockchain%20modular!" target="_blank" class="share-btn share-telegram">
-                <span>✈️</span>
-                <span>Telegram</span>
-              </a>
-              
-              <button onclick="copyToClipboard()" class="share-btn share-copy" style="border: none; cursor: pointer; position: relative;">
-                <span>📋</span>
-                <span>Copiar Link</span>
-                <div id="copy-feedback" class="copy-feedback">Link copiado!</div>
-              </button>
-            </div>
-          </div>
+      <!-- Divider -->
+      <div class="share-divider"></div>
+
+      <!-- Social Share Section -->
+      <div class="social-share">
+        <div class="share-title">Compartilhar via:</div>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?text=Conhe%C3%A7a%20o%20Limio%20System%20-%20Blockchain%20modular%20de%20pr%C3%B3xima%20gera%C3%A7%C3%A3o!&url=https://limylimionaider.github.io/site-limio/&hashtags=blockchain,limio,crypto" target="_blank" class="share-btn share-twitter">
+            <i class="fab fa-twitter"></i> Twitter
+          </a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://limylimionaider.github.io/site-limio/" target="_blank" class="share-btn share-linkedin">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://wa.me/?text=Conhe%C3%A7a%20o%20Limio%20System%20-%20Blockchain%20modular%20de%20pr%C3%B3xima%20gera%C3%A7%C3%A3o!%20https://limylimionaider.github.io/site-limio/" target="_blank" class="share-btn share-whatsapp">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="https://t.me/share/url?url=https://limylimionaider.github.io/site-limio/&text=Conhe%C3%A7a%20o%20Limio%20System%20-%20Blockchain%20modular!" target="_blank" class="share-btn share-telegram">
+            <i class="fab fa-telegram"></i> Telegram
+          </a>
+          <button onclick="copyToClipboard()" class="share-btn share-copy">
+            <i class="fas fa-copy"></i> Copiar Link
+            <div id="copy-feedback" class="copy-feedback">Link copiado!</div>
+          </button>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- Developer Guide -->
     <section id="dev" data-aos="fade-up">
