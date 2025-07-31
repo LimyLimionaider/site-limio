@@ -835,6 +835,59 @@
       </div>
     </section>
 
+    <!-- Share Section -->
+    <section data-aos="fade-up">
+      <h2>Compartilhe o Limio</h2>
+      <p class="section-subtitle">Espalhe a revolução blockchain</p>
+      <div class="share-section">
+        <div class="share-container">
+          <!-- QR Code Section -->
+          <div class="qr-section">
+            <div class="qr-label">Escaneie para acessar</div>
+            <div class="qr-code">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://limylimionaider.github.io/site-limio/" alt="QR Code do Limio System">
+            </div>
+            <div class="site-url">limio.system</div>
+          </div>
+
+          <!-- Divider -->
+          <div class="share-divider"></div>
+
+          <!-- Social Share Section -->
+          <div class="social-share">
+            <div class="share-title">Compartilhar via:</div>
+            <div class="share-buttons">
+              <a href="https://twitter.com/intent/tweet?text=Conheça%20o%20Limio%20System%20-%20Blockchain%20modular%20de%20próxima%20geração!&url=https://limylimionaider.github.io/site-limio/&hashtags=blockchain,limio,crypto" target="_blank" class="share-btn share-twitter">
+                <span>🐦</span>
+                <span>Twitter</span>
+              </a>
+              
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://limylimionaider.github.io/site-limio/" target="_blank" class="share-btn share-linkedin">
+                <span>💼</span>
+                <span>LinkedIn</span>
+              </a>
+              
+              <a href="https://wa.me/?text=Conheça%20o%20Limio%20System%20-%20Blockchain%20modular%20de%20próxima%20geração!%20https://limylimionaider.github.io/site-limio/" target="_blank" class="share-btn share-whatsapp">
+                <span>💬</span>
+                <span>WhatsApp</span>
+              </a>
+              
+              <a href="https://t.me/share/url?url=https://limylimionaider.github.io/site-limio/&text=Conheça%20o%20Limio%20System%20-%20Blockchain%20modular!" target="_blank" class="share-btn share-telegram">
+                <span>✈️</span>
+                <span>Telegram</span>
+              </a>
+              
+              <button onclick="copyToClipboard()" class="share-btn share-copy" style="border: none; cursor: pointer; position: relative;">
+                <span>📋</span>
+                <span>Copiar Link</span>
+                <div id="copy-feedback" class="copy-feedback">Link copiado!</div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Developer Guide -->
     <section id="dev" data-aos="fade-up">
       <h2>Guia para Desenvolvedores</h2>
@@ -1055,6 +1108,31 @@
       document.querySelectorAll('.reveal').forEach((el) => {
         observer.observe(el);
       });
+    }
+
+    // Copy to clipboard function
+    function copyToClipboard() {
+      const url = 'https://limylimionaider.github.io/site-limio/';
+      navigator.clipboard.writeText(url).then(function() {
+        showCopyFeedback();
+      }).catch(function() {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showCopyFeedback();
+      });
+    }
+
+    function showCopyFeedback() {
+      const feedback = document.getElementById('copy-feedback');
+      feedback.classList.add('show');
+      setTimeout(() => {
+        feedback.classList.remove('show');
+      }, 2000);
     }
 
     // Initialize everything when page loads
