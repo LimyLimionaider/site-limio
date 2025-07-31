@@ -76,7 +76,10 @@
       padding: 8rem 2rem 6rem;
       background: 
         radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-        linear-gradient(rgba(10, 15, 12, 0.8), rgba(14, 23, 18, 0.9));
+        linear-gradient(rgba(10, 15, 12, 0.85), rgba(14, 23, 18, 0.9)),
+        url('LimioOne.png') center/contain no-repeat;
+      background-size: auto, auto, 300px;
+      background-position: center, center, center top 2rem;
       overflow: hidden;
     }
 
@@ -104,19 +107,20 @@
     }
 
     .logo {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       margin: 0 auto 1rem;
-      background: var(--gradient-gold);
+      background: url('LimioOne.png') center/cover no-repeat;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 2rem;
       font-weight: bold;
-      color: var(--bg-primary);
+      color: transparent;
       box-shadow: var(--shadow-gold);
       animation: pulse-glow 3s ease-in-out infinite;
+      border: 3px solid var(--gold-primary);
     }
 
     @keyframes pulse-glow {
@@ -224,9 +228,20 @@
     }
 
     .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--gold-primary);
+    }
+
+    .nav-logo-img {
+      width: 32px;
+      height: 32px;
+      background: url('LimioOne.png') center/cover no-repeat;
+      border-radius: 50%;
+      border: 2px solid var(--gold-primary);
     }
 
     .nav-links {
@@ -579,7 +594,20 @@
       color: var(--gold-primary);
     }
 
-    /* Responsive */
+    /* Limio coin styling */
+    .limio-coin {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+      box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+    }
+
+    .status-icon img {
+      filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.4));
+    }
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -626,7 +654,10 @@
   <!-- Navigation -->
   <nav id="navbar">
     <div class="nav-container">
-      <div class="nav-logo">Limio</div>
+      <div class="nav-logo">
+        <div class="nav-logo-img"></div>
+        Limio
+      </div>
       <ul class="nav-links">
         <li><a href="#home">Início</a></li>
         <li><a href="#features">Recursos</a></li>
@@ -638,7 +669,7 @@
 
   <header id="home" data-aos="fade-down">
     <div class="header-content">
-      <div class="logo">L</div>
+      <div class="logo"></div>
       <h1>Limio System</h1>
       <p>Blockchain modular de próxima geração com mineração, terminal interativo, REST API e governança descentralizada.</p>
       <div class="cta-group">
@@ -670,6 +701,7 @@
 <span class="terminal-prompt">$ limio wallet balance</span>
 <span class="terminal-output">💰  Saldo: 45.21 LIM</span>
 <span class="terminal-output">💎  Valor: R$ 20,34</span>
+<span class="terminal-output">🪙  <img src="LimioOne.png" class="limio-coin" alt="LIM"> Limio Coins</span>
 
 <span class="terminal-prompt">$ limio network status</span>
 <span class="terminal-output">📡  Nós conectados: 37</span>
@@ -685,7 +717,9 @@
       <p class="section-subtitle">Métricas atualizadas da blockchain Limio</p>
       <div class="status-grid">
         <div class="status-card" data-aos="zoom-in" data-aos-delay="100">
-          <span class="status-icon">💰</span>
+          <span class="status-icon">
+            <img src="LimioOne.png" alt="Limio Coin" style="width: 40px; height: 40px; border-radius: 50%;">
+          </span>
           <div class="status-value" id="price">R$ 0,45</div>
           <div class="status-label">Preço LIM</div>
         </div>
