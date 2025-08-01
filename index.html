@@ -456,6 +456,247 @@
       font-size: 0.9rem;
     }
 
+    /* Blockchain Animation Styles */
+    .blockchain-demo {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px solid var(--border-color);
+    }
+
+    .blockchain-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .limio-btn {
+      background: var(--bg-glass);
+      border: 2px solid var(--gold-primary);
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius);
+      color: var(--gold-primary);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+      font-size: 0.9rem;
+    }
+
+    .limio-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .limio-btn:hover {
+      border-color: var(--gold-secondary);
+      color: var(--gold-secondary);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .limio-btn:hover::before {
+      left: 100%;
+    }
+
+    .limio-btn:disabled {
+      border-color: #666;
+      color: #666;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .blockchain-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .blockchain-stat {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: var(--radius);
+      padding: 1rem;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .stat-value-blockchain {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--gold-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label-blockchain {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .blockchain-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2rem 0;
+      overflow-x: auto;
+      min-height: 200px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: var(--radius);
+      margin: 1rem 0;
+    }
+
+    .block {
+      min-width: 180px;
+      height: 140px;
+      background: linear-gradient(145deg, rgba(25, 45, 30, 0.8), rgba(25, 45, 30, 0.6));
+      border-radius: var(--radius);
+      margin: 0 10px;
+      padding: 1rem;
+      position: relative;
+      border: 2px solid var(--gold-primary);
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      box-shadow: var(--shadow-dark);
+    }
+
+    .block.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .block.mining {
+      animation: blockMining 2s infinite;
+      border-color: var(--gold-secondary);
+    }
+
+    @keyframes blockMining {
+      0%, 100% { 
+        transform: translateY(0) scale(1);
+        box-shadow: var(--shadow-dark);
+      }
+      50% { 
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
+      }
+    }
+
+    .block-header {
+      font-weight: bold;
+      font-size: 0.9rem;
+      color: var(--gold-primary);
+      margin-bottom: 0.5rem;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .block-data {
+      font-size: 0.75rem;
+      line-height: 1.4;
+      color: var(--text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .hash {
+      background: rgba(212, 175, 55, 0.1);
+      padding: 3px 6px;
+      border-radius: 4px;
+      margin: 3px 0;
+      word-break: break-all;
+      border-left: 2px solid var(--gold-primary);
+      font-size: 0.7rem;
+    }
+
+    .chain-link {
+      width: 60px;
+      height: 6px;
+      background: linear-gradient(90deg, var(--gold-primary), var(--gold-secondary));
+      position: relative;
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      border-radius: 3px;
+    }
+
+    .chain-link.active {
+      opacity: 1;
+      animation: linkGrow 0.8s ease-out forwards;
+    }
+
+    @keyframes linkGrow {
+      0% { 
+        transform: scaleX(0);
+        filter: brightness(1);
+      }
+      50% {
+        filter: brightness(1.5);
+      }
+      100% { 
+        transform: scaleX(1);
+        filter: brightness(1);
+      }
+    }
+
+    .chain-link::before,
+    .chain-link::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: var(--gold-primary);
+      border-radius: 50%;
+      top: -3px;
+      box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+    }
+
+    .chain-link::before { left: -6px; }
+    .chain-link::after { right: -6px; }
+
+    .transaction-pool {
+      background: rgba(212, 175, 55, 0.1);
+      border: 2px dashed var(--gold-primary);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin: 1rem 0;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .transaction-pool h4 {
+      color: var(--gold-primary);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .transaction {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border-radius: 6px;
+      border-left: 3px solid var(--gold-primary);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .limio-amount {
+      color: var(--gold-secondary);
+      font-weight: bold;
+    }
+
     /* Modules grid */
     .modules-grid {
       display: grid;
@@ -632,6 +873,7 @@
     .status-icon img {
       filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.4));
     }
+
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -645,6 +887,47 @@
       .cta-button {
         width: 100%;
         max-width: 300px;
+      }
+
+      .blockchain-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .chain-link {
+        width: 6px;
+        height: 60px;
+        transform-origin: top;
+      }
+      
+      .chain-link.active {
+        animation: linkGrowVertical 0.8s ease-out forwards;
+      }
+      
+      @keyframes linkGrowVertical {
+        0% { transform: scaleY(0); }
+        100% { transform: scaleY(1); }
+      }
+      
+      .chain-link::before,
+      .chain-link::after {
+        top: -6px;
+        left: -3px;
+      }
+      
+      .chain-link::after {
+        top: auto;
+        bottom: -6px;
+      }
+
+      .blockchain-controls {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .limio-btn {
+        width: 100%;
+        max-width: 200px;
       }
     }
 
@@ -714,6 +997,7 @@
       </div>
       <ul class="nav-links">
         <li><a href="#home">Início</a></li>
+        <li><a href="#blockchain-demo">Demo Blockchain</a></li>
         <li><a href="#features">Recursos</a></li>
         <li><a href="#modules">Módulos</a></li>
         <li><a href="#dev">Desenvolvedores</a></li>
@@ -730,13 +1014,63 @@
       <h1>Limio System</h1>
       <p>Blockchain modular de próxima geração com mineração, terminal interativo, REST API e governança descentralizada.</p>
       <div class="cta-group">
-        <a href="#dev" class="cta-button">Começar Agora</a>
+        <a href="#blockchain-demo" class="cta-button">Ver Demo Blockchain</a>
         <a href="#features" class="cta-button cta-secondary">Explorar Recursos</a>
       </div>
     </div>
   </header>
 
   <main>
+    <!-- Blockchain Demo Section -->
+    <section id="blockchain-demo" data-aos="fade-up">
+      <h2>⛓️ Demonstração Blockchain Limio</h2>
+      <p class="section-subtitle">Veja como a blockchain Limio funciona em tempo real</p>
+      
+      <div class="blockchain-demo">
+        <!-- Network Stats -->
+        <div class="blockchain-stats">
+          <div class="blockchain-stat">
+            <div class="stat-value-blockchain" id="limio-nodes">37</div>
+            <div class="stat-label-blockchain">Nós Ativos</div>
+          </div>
+          <div class="blockchain-stat">
+            <div class="stat-value-blockchain" id="limio-tps">142.3</div>
+            <div class="stat-label-blockchain">TPS Médio</div>
+          </div>
+          <div class="blockchain-stat">
+            <div class="stat-value-blockchain" id="limio-miners">1,205</div>
+            <div class="stat-label-blockchain">Mineradores</div>
+          </div>
+          <div class="blockchain-stat">
+            <div class="stat-value-blockchain" id="limio-blocks">0</div>
+            <div class="stat-label-blockchain">Blocos</div>
+          </div>
+        </div>
+
+        <!-- Transaction Pool -->
+        <div class="transaction-pool">
+          <h4>💰 Pool de Transações LIM</h4>
+          <div id="limio-transaction-pool"></div>
+        </div>
+
+        <!-- Controls -->
+        <div class="blockchain-controls">
+          <button class="limio-btn" onclick="addLimioTransaction()">
+            Nova Transação
+          </button>
+          <button class="limio-btn" onclick="mineLimioBlock()" id="limio-mine-btn">
+            Minerar Bloco
+          </button>
+          <button class="limio-btn" onclick="resetLimioChain()">
+            Reset
+          </button>
+        </div>
+
+        <!-- Blockchain Visualization -->
+        <div class="blockchain-container" id="limio-blockchain"></div>
+      </div>
+    </section>
+
     <!-- Terminal Experience -->
     <section data-aos="fade-up">
       <h2>Experiência Limio CLI</h2>
@@ -867,48 +1201,47 @@
 
     <!-- Share Section -->
     <section data-aos="fade-up">
-  <h2>Compartilhe o Limio</h2>
-  <p class="section-subtitle">Espalhe a revolução blockchain</p>
-  <div class="share-section">
-    <div class="share-container">
+      <h2>Compartilhe o Limio</h2>
+      <p class="section-subtitle">Espalhe a revolução blockchain</p>
+      <div class="share-section">
+        <div class="share-container">
+          <!-- QR Code Section -->
+          <div class="qr-section">
+            <div class="qr-label">Escaneie para acessar</div>
+            <div class="qr-code">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://limylimionaider.github.io/site-limio/" alt="QR Code do Limio System">
+            </div>
+            <div class="site-url">limio.system</div>
+          </div>
 
-      <!-- QR Code Section -->
-      <div class="qr-section">
-        <div class="qr-label">Escaneie para acessar</div>
-        <div class="qr-code">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://limylimionaider.github.io/site-limio/" alt="QR Code do Limio System">
+          <!-- Divider -->
+          <div class="share-divider"></div>
+
+          <!-- Social Share Section -->
+          <div class="social-share">
+            <div class="share-title">Compartilhar via:</div>
+            <div class="share-buttons">
+              <a href="https://twitter.com/intent/tweet?text=Conhe%C3%A7a%20o%20Limio%20System%20-%20Blockchain%20modular%20de%20pr%C3%B3xima%20gera%C3%A7%C3%A3o!&url=https://limylimionaider.github.io/site-limio/&hashtags=blockchain,limio,crypto" target="_blank" class="share-btn share-twitter">
+                <i class="fab fa-twitter"></i> Twitter
+              </a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://limylimionaider.github.io/site-limio/" target="_blank" class="share-btn share-linkedin">
+                <i class="fab fa-linkedin"></i> LinkedIn
+              </a>
+              <a href="https://wa.me/?text=Conhe%C3%A7a%20o%20Limio%20System%20-%20Blockchain%20modular%20de%20pr%C3%B3xima%20gera%C3%A7%C3%A3o!%20https://limylimionaider.github.io/site-limio/" target="_blank" class="share-btn share-whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="https://t.me/share/url?url=https://limylimionaider.github.io/site-limio/&text=Conhe%C3%A7a%20o%20Limio%20System%20-%20Blockchain%20modular!" target="_blank" class="share-btn share-telegram">
+                <i class="fab fa-telegram"></i> Telegram
+              </a>
+              <button onclick="copyToClipboard()" class="share-btn share-copy">
+                <i class="fas fa-copy"></i> Copiar Link
+                <div id="copy-feedback" class="copy-feedback">Link copiado!</div>
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="site-url">limio.system</div>
       </div>
-
-      <!-- Divider -->
-      <div class="share-divider"></div>
-
-      <!-- Social Share Section -->
-      <div class="social-share">
-        <div class="share-title">Compartilhar via:</div>
-        <div class="share-buttons">
-          <a href="https://twitter.com/intent/tweet?text=Conhe%C3%A7a%20o%20Limio%20System%20-%20Blockchain%20modular%20de%20pr%C3%B3xima%20gera%C3%A7%C3%A3o!&url=https://limylimionaider.github.io/site-limio/&hashtags=blockchain,limio,crypto" target="_blank" class="share-btn share-twitter">
-            <i class="fab fa-twitter"></i> Twitter
-          </a>
-          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://limylimionaider.github.io/site-limio/" target="_blank" class="share-btn share-linkedin">
-            <i class="fab fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://wa.me/?text=Conhe%C3%A7a%20o%20Limio%20System%20-%20Blockchain%20modular%20de%20pr%C3%B3xima%20gera%C3%A7%C3%A3o!%20https://limylimionaider.github.io/site-limio/" target="_blank" class="share-btn share-whatsapp">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-          </a>
-          <a href="https://t.me/share/url?url=https://limylimionaider.github.io/site-limio/&text=Conhe%C3%A7a%20o%20Limio%20System%20-%20Blockchain%20modular!" target="_blank" class="share-btn share-telegram">
-            <i class="fab fa-telegram"></i> Telegram
-          </a>
-          <button onclick="copyToClipboard()" class="share-btn share-copy">
-            <i class="fas fa-copy"></i> Copiar Link
-            <div id="copy-feedback" class="copy-feedback">Link copiado!</div>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- Developer Guide -->
     <section id="dev" data-aos="fade-up">
@@ -951,6 +1284,245 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    // Blockchain Demo Logic
+    class LimioBlockchain {
+      constructor() {
+        this.chain = [];
+        this.pendingTransactions = [];
+        this.miningInProgress = false;
+        this.miningReward = 12.5;
+        this.networkStats = {
+          nodes: 37,
+          tps: 142.3,
+          miners: 1205
+        };
+      }
+
+      createGenesisBlock() {
+        const genesisBlock = {
+          index: 0,
+          timestamp: Date.now(),
+          data: {
+            type: "genesis",
+            message: "Bloco Gênesis Limio",
+            transactions: []
+          },
+          previousHash: "0x0000000000000000",
+          hash: "0x7a8b9c2d3e4f5678",
+          nonce: 0,
+          miner: "Limio System"
+        };
+        
+        this.chain.push(genesisBlock);
+        this.updateNetworkStats();
+        this.renderBlockchain();
+      }
+
+      calculateHash(index, timestamp, data, previousHash, nonce = 0) {
+        const input = index + timestamp + JSON.stringify(data) + previousHash + nonce;
+        return "0x" + this.simpleHash(input);
+      }
+
+      simpleHash(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+          const char = str.charCodeAt(i);
+          hash = ((hash << 5) - hash) + char;
+          hash = hash & hash;
+        }
+        return Math.abs(hash).toString(16).padStart(12, '0');
+      }
+
+      getLatestBlock() {
+        return this.chain[this.chain.length - 1];
+      }
+
+      async mineNewBlock() {
+        if (this.miningInProgress || this.pendingTransactions.length === 0) return;
+        
+        this.miningInProgress = true;
+        document.getElementById('limio-mine-btn').disabled = true;
+        
+        const newBlock = {
+          index: this.chain.length,
+          timestamp: Date.now(),
+          data: {
+            type: "transaction_block",
+            transactions: [...this.pendingTransactions],
+            reward: this.miningReward
+          },
+          previousHash: this.getLatestBlock().hash,
+          nonce: 0,
+          miner: "Minerador Limio #" + Math.floor(Math.random() * 1000)
+        };
+
+        await this.simulateProofOfWork(newBlock);
+
+        newBlock.hash = this.calculateHash(
+          newBlock.index,
+          newBlock.timestamp,
+          newBlock.data,
+          newBlock.previousHash,
+          newBlock.nonce
+        );
+
+        this.chain.push(newBlock);
+        this.pendingTransactions = [];
+        this.miningInProgress = false;
+        
+        document.getElementById('limio-mine-btn').disabled = false;
+        
+        this.updateNetworkStats();
+        this.renderBlockchain();
+        this.updateTransactionPool();
+      }
+
+      async simulateProofOfWork(block) {
+        return new Promise(resolve => {
+          let attempts = 0;
+          const maxAttempts = 30;
+          
+          const interval = setInterval(() => {
+            block.nonce = Math.floor(Math.random() * 1000000);
+            attempts++;
+            
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+              resolve();
+            }
+          }, 100);
+        });
+      }
+
+      addTransaction(from, to, amount) {
+        const transaction = {
+          id: "tx_" + Date.now(),
+          from,
+          to,
+          amount: parseFloat(amount),
+          timestamp: new Date().toLocaleTimeString(),
+          fee: 0.01
+        };
+        
+        this.pendingTransactions.push(transaction);
+        this.updateTransactionPool();
+      }
+
+      updateTransactionPool() {
+        const poolElement = document.getElementById('limio-transaction-pool');
+        poolElement.innerHTML = '';
+        
+        if (this.pendingTransactions.length === 0) {
+          poolElement.innerHTML = '<div class="transaction">Nenhuma transação pendente</div>';
+        } else {
+          this.pendingTransactions.forEach(tx => {
+            const txElement = document.createElement('div');
+            txElement.className = 'transaction';
+            txElement.innerHTML = `
+              <strong>${tx.from}</strong> → <strong>${tx.to}</strong>: 
+              <span class="limio-amount">${tx.amount} LIM</span> 
+              (Taxa: ${tx.fee} LIM) - ${tx.timestamp}
+            `;
+            poolElement.appendChild(txElement);
+          });
+        }
+      }
+
+      updateNetworkStats() {
+        // Simular variações nos stats da rede
+        this.networkStats.nodes += Math.floor(Math.random() * 3) - 1;
+        this.networkStats.tps += (Math.random() - 0.5) * 20;
+        this.networkStats.miners += Math.floor(Math.random() * 10) - 5;
+        
+        document.getElementById('limio-nodes').textContent = Math.max(1, this.networkStats.nodes);
+        document.getElementById('limio-tps').textContent = Math.max(0, this.networkStats.tps.toFixed(1));
+        document.getElementById('limio-miners').textContent = Math.max(1, this.networkStats.miners);
+        document.getElementById('limio-blocks').textContent = this.chain.length;
+      }
+
+      renderBlockchain() {
+        const container = document.getElementById('limio-blockchain');
+        container.innerHTML = '';
+
+        this.chain.forEach((block, index) => {
+          const blockElement = document.createElement('div');
+          blockElement.className = 'block';
+          
+          const txCount = Array.isArray(block.data.transactions) ? 
+            block.data.transactions.length : 0;
+          
+          blockElement.innerHTML = `
+            <div class="block-header">Bloco #${block.index}</div>
+            <div class="block-data">
+              <div class="hash">Hash: ${block.hash.substring(0, 16)}...</div>
+              <div class="hash">Prev: ${block.previousHash.substring(0, 16)}...</div>
+              <div>Nonce: ${block.nonce}</div>
+              <div>TX: ${txCount}</div>
+              ${block.data.reward ? `<div class="limio-amount">+${block.data.reward} LIM</div>` : ''}
+            </div>
+          `;
+
+          if (index < this.chain.length - 1) {
+            const linkElement = document.createElement('div');
+            linkElement.className = 'chain-link';
+            container.appendChild(blockElement);
+            container.appendChild(linkElement);
+            
+            setTimeout(() => {
+              linkElement.classList.add('active');
+            }, (index + 1) * 400 + 300);
+          } else {
+            container.appendChild(blockElement);
+          }
+
+          setTimeout(() => {
+            blockElement.classList.add('active');
+            if (index === this.chain.length - 1 && this.miningInProgress) {
+              blockElement.classList.add('mining');
+            }
+          }, index * 400);
+        });
+      }
+
+      reset() {
+        this.chain = [];
+        this.pendingTransactions = [];
+        this.miningInProgress = false;
+        this.networkStats = { nodes: 37, tps: 142.3, miners: 1205 };
+        
+        document.getElementById('limio-blockchain').innerHTML = '';
+        document.getElementById('limio-mine-btn').disabled = false;
+        
+        this.updateNetworkStats();
+        this.updateTransactionPool();
+      }
+    }
+
+    const limioBlockchain = new LimioBlockchain();
+
+    function addLimioTransaction() {
+      const users = ['Alice', 'Bob', 'Carol', 'David', 'Eva', 'Frank', 'Grace', 'Henry'];
+      
+      const from = users[Math.floor(Math.random() * users.length)];
+      let to = users[Math.floor(Math.random() * users.length)];
+      
+      while (to === from) {
+        to = users[Math.floor(Math.random() * users.length)];
+      }
+      
+      const amount = (Math.random() * 50 + 0.1).toFixed(2);
+      
+      limioBlockchain.addTransaction(from, to, amount);
+    }
+
+    function mineLimioBlock() {
+      limioBlockchain.mineNewBlock();
+    }
+
+    function resetLimioChain() {
+      limioBlockchain.reset();
+    }
+
     // Wait for AOS to load
     function initializeAOS() {
       if (typeof AOS !== 'undefined') {
@@ -1100,23 +1672,6 @@
       });
     }
 
-    // Terminal typing effect
-    function createTypingEffect() {
-      const terminal = document.querySelector('.terminal');
-      const originalContent = terminal.innerHTML;
-      terminal.innerHTML = '';
-
-      let i = 0;
-      const typeInterval = setInterval(() => {
-        if (i < originalContent.length) {
-          terminal.innerHTML += originalContent.charAt(i);
-          i++;
-        } else {
-          clearInterval(typeInterval);
-        }
-      }, 50); // Adjust speed as needed
-    }
-
     // Intersection Observer for reveal animations
     function setupRevealAnimations() {
       const observer = new IntersectionObserver((entries) => {
@@ -1163,6 +1718,16 @@
       setupSmoothScrolling();
       setupModuleInteractions();
       setupRevealAnimations();
+      
+      // Initialize blockchain demo
+      limioBlockchain.createGenesisBlock();
+      
+      // Add some initial transactions
+      setTimeout(() => {
+        addLimioTransaction();
+        addLimioTransaction();
+        addLimioTransaction();
+      }, 1500);
       
       // Initialize AOS with delay to ensure it's loaded
       setTimeout(initializeAOS, 100);
@@ -1240,8 +1805,119 @@
         0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
         50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
       }
+      
+      .copy-feedback {
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--gold-primary);
+        color: var(--bg-primary);
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+        z-index: 10;
+      }
+      
+      .copy-feedback.show {
+        opacity: 1;
+      }
+      
+      .share-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      .qr-section {
+        text-align: center;
+      }
+      
+      .qr-label {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+      
+      .qr-code img {
+        border-radius: var(--radius);
+        border: 2px solid var(--gold-primary);
+        padding: 0.5rem;
+        background: white;
+      }
+      
+      .site-url {
+        color: var(--gold-primary);
+        font-weight: 600;
+        margin-top: 1rem;
+        font-family: 'JetBrains Mono', monospace;
+      }
+      
+      .share-divider {
+        width: 1px;
+        height: 100px;
+        background: linear-gradient(to bottom, transparent, var(--gold-primary), transparent);
+      }
+      
+      .social-share {
+        text-align: center;
+      }
+      
+      .share-title {
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+      
+      .share-btn {
+        position: relative;
+      }
+      
+      @media (max-width: 768px) {
+        .share-container {
+          flex-direction: column;
+          gap: 2rem;
+        }
+        
+        .share-divider {
+          width: 100px;
+          height: 1px;
+          background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
+        }
+        
+        .share-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .share-btn {
+          width: 200px;
+          justify-content: center;
+        }
+      }
     `;
     document.head.appendChild(style);
+
+    // Auto-update blockchain stats
+    setInterval(() => {
+      if (!limioBlockchain.miningInProgress) {
+        limioBlockchain.updateNetworkStats();
+      }
+    }, 5000);
+
+    // Auto-add transactions periodically
+    setInterval(() => {
+      if (Math.random() < 0.3 && limioBlockchain.pendingTransactions.length < 5) {
+        addLimioTransaction();
+      }
+    }, 8000);
   </script>
 </body>
 </html>
